@@ -1,0 +1,164 @@
+project_name: "syanght_plastic_v1.5"
+data_set:
+    #训练相关数据路径
+    #批次信息，训练检测模型、分类模型、测试三个过程中，如果设置了批次信息，会根据批次信息重新拉数据，并更新到train_file_path，val_file_classify文件，
+    #也可设置为“None”，此时会使用train_file_path，val_file_classify
+    train_batch_path: "None"
+    #nfs挂载路径，拉取数据时需要，训练检测模型必须设置，为了提高读取图片速度，训练第一轮会把数据保存到本地（data_save_path_temp），保存地址即把图片文件路径中得nfs挂载路径（nfs_mount_path）替换为本地存储路径（data_save_path_temp）
+    nfs_mount_path: "None"
+    #本地图片缓存路径，训练检测模型必须设置
+    data_save_path_temp: "None"
+    #训练集嵌件裁剪下来存放路径，分类模型必须设置，训练过程中会根据train_file_path文件裁剪到该路径下，该路径必须为空文件夹
+    classify_train_data_save_path_temp: "None"
+    #测试集嵌件裁剪下来存放路径，分类模型必须设置，训练过程中会根据train_file_path文件裁剪到该路径下，该路径必须为空文件夹
+    classify_val_data_save_path_temp: "None"
+    #训练集信息，训练检测模型、分类模型、测试三个过程中都必须设置，如果设置了train_batch_path，该文件会被更新，在训练过程中也会被打乱顺序
+    train_file_path: "None"
+    #测试集信息，训练检测模型、分类模型、测试三个过程中都必须设置，如果设置了train_batch_path，该文件会被更新
+    val_file_path: "None"
+    #嵌件训练集存储文件，训练分类必须设置，嵌件裁剪下来后，会根据一定格式存储在该路径下
+    train_file_classify: "None"
+    #嵌件测试集存储文件，训练分类必须设置，嵌件裁剪下来后，会根据一定格式存储在该路径下
+    val_file_classify: "None"
+    #anchor路径，训练检测模型、测试过程中都必须设置，实际应用过程中会在该数据基础上乘2.5倍
+    anchor_path: "None"
+    #检测模型类别信息，训练检测模型、测试过程必须设置，检测模型训练过程中所有嵌件都合并为1类，因此所有工厂，该文件都一样
+    detection_class_name_path: "None"
+    #分类模型嵌件类别信息，训练检测模型、分类模型、测试三个过程中必须设置，设置原则是该模型需要进行检测得嵌件都需要包含在该文件内
+    class_name_path: "None"
+    #检测模型初始化参数时加载得模型，检测模型训练必须设置
+    model_restore_path: "None"
+    #分类模型初始化参数时加载得模型，分类模型训练必须设置
+    classify_model_restore_model: "None"
+    #log 存储路径，训练检测模型、分类模型、测试三个过程中都必须设置
+    log_save_path: "None"
+    #检测模型存储路径，检测模型训练、测试必须设置，用于存放检测模型，测试时也会从该路径加载检测模型
+    model_save_path: "None"
+    #分类模型存储路径，分类模型训练、测试必须设置，用于存放分类模型，测试时也会从该路径加载分类模型
+    classify_model_save_path: "None"
+    #背景图片存储路径，训练检测模型时可选择设置，该路径下可以放多个子文件夹，子文件夹下面存放图片，如果遇到嵌件安装与不安装难以区分情况下，可以把背景数据存放到该路径下，训练时会把背景贴到数据中进行训练
+    add_background_path: "None"
+    #测试结果csv文件保存路径，测试过程必须设置
+    test_result_save_path: "None"
+    #测试结果分类错误嵌件保存路径，测试过程必须设置
+    wrong_label_save_path: "None"
+    #训练集和测试集在拉取数据过程中要删除得类别，如果设置了train_batch_path，就必须设置，可以多设置，即使没有出现在标注文件中也没关系
+    delete_labels: "None"
+    #背景数据集在拉取数据过程中要删除得类别，如果设置了train_batch_path，就必须设置，和delete_labels区别在于，背景信息中可以包含工件位置信息
+    delete_labels_background: "None"
+    #训练过程中该类别会被填充为0，目前都是默认该参数就行，非必须设置参数
+    fill_zero_label_names: ["wxqy"]
+    #是否在训练分类模型时裁剪嵌件，默认为True，如果设置为False，不会进行裁剪，会直接用上一次裁剪得数据
+    need_cut_object: True
+model_set:
+    #检测模型存储名称，非必须，有默认参数
+    model_save_name: "detection_model_default_name"
+    #是否仅采用前面两层feature_map来识别目标，用于提速，大致能提高20%左右，如果都是小目标，训练效果应该没有大的影响，默认为False
+    train_with_two_feature_map: False
+    #检测模型训练参数加载区域，如果设置为['None']，则会加载所有参数，如果想从训练好的模型继续训练，可以设置为['None']
+    restore_part: ['yolov3/darknet53_body']
+    #训练检测模型中更新参数区域，设置为["None"]更新所有参数， 设置为["yolov3/yolov3_head"],则只更新网络头部
+    update_part: ["None"]
+    # input param
+    #训练检测模型图片尺寸
+    image_size: [1024, 1024]
+    #训练过程中数据处理进程数
+    num_threads: 24
+    #训练中预加载得数据量
+    prefetech_buffer: 100
+    #检测模型训练是否采用灰度图进行训练
+    train_with_gray: True
+    #在训练检测模型中，是否要贴背景数据进行训练，需要和add_background_path同时设置才能正常启用
+    add_background: False
+    # model architecture
+    #检测模型驱赶网络类型
+    backbone_name: "darknet53" #can be mobilenetv3、mobilenetv2、darknet53、darknet53_prun、mobilenetv3_add_zoom_factor
+    # optimization
+    #优化函数类型
+    optimizer_name: 'adam' #可以是[sgd, momentum, adam, rmsprop]其中一个
+    #检测模型训练学习率初始化值
+    learning_rate_init: 5.e-4
+    #训练检测模型中学习率变化类型
+    lr_type: "exponential" #可以说["exponential", 'fixed']，第一个随着步数变小，第二个一直固定学习率不变
+    #检测模型训练多少轮降一次学习率
+    lr_decay_freq_epoch: 3
+    #检测模型训练学习率变换因子，默认每次变为原来0.5倍
+    lr_decay_factor: 0.5
+    #检测模型学习率最小值
+    lr_lower_bound: 5.e-7
+    #是否采用warm_up
+    use_warm_up: False
+    #warm_up 初始化学习率
+    warm_up_lr: 1.e-5
+    #warm_up轮数
+    warm_up_epoch: 5
+    #gpu设置，训练检测模型可以是多gpu（"0,1", "1,2,3", ....），也可以是单gpu("0", "1", "2", .....)，分类和测试中如果设置多个，会选择第一个使用
+    gpu_device: "0"
+    #检测模型batch_size
+    batch_size: 2
+    #检测模型训练轮数，非必须，默认为100
+    total_epoches: 100
+    #loss param
+    #l2损失比重
+    l2_loss_weight: 4.e-5
+    #train param
+    #检测模型训练多少步保存一次模型
+    save_freq: 500
+    #分类模型参数
+    #分类模型存储名称。非必须，有默认参数
+    classify_model_save_name: "classify_model_default_name"
+    #分类模型推断尺寸
+    classify_size: [192, 192]
+    #嵌件分类的时候扩充出去的尺寸
+    extension_ratio: 1.5 #嵌件分类的时候扩充出去的尺寸
+    #是否把嵌件扩充到矩形再进行分类，训练分类和测试时使用，默认为True
+    fill_box2square: True #是否把嵌件扩充到矩形再进行分类
+    #分类模型l2损失比重
+    weight_decay: 0.0005
+    #分类模型训练动量参数
+    momentum: 0.9
+    #分类模型batch size
+    classify_batch_size: 64
+    #分类模型初始化学习率
+    classify_init_learning_rate: 0.01
+    #训练分类总轮数
+    classify_total_epochs: 20
+    #单独测试分类模型准确率时，会根据该得分阈值进行筛选，如果低于该值认为没有找到，非必须
+    classify_model_test_score: 0.
+#以下参数测试过程中使用，有默认值，非必须
+test_other_info_set:
+     #目标检测得分最小阈值
+    score_thresh_detection: 0.01
+    #目标检测nms阈值，当嵌件有相互嵌套情况建议设置为0.5，默认0.2，否者可能导致嵌件被过滤掉
+    iou_thresh: 0.2
+    #分类得分最小阈值
+    score_thresh_classify: 0.01
+    #同类别nms阈值
+    labels_nms_threshold: 0.1
+    #检测模型推断尺寸， [w，h]
+    new_size_detection: [2720, 1824]
+    #小于该尺寸的嵌件将被过滤掉
+    size_min: 0
+    #是否进行分类，如果只有一个类别，不需要进行分类
+    do_classify: True
+    #是否把测试过程中分类错误的数据存储下来，以便分析
+    write_wrong_label: False
+    #是否把测试错误的数据显示出来
+    show_wrong_data: False
+    #保障准确率要求条件下检测得分最低阈值
+    detection_threshold_for_show: [0.2]
+    #保障准确率要求条件下分类得分最低阈值
+    classify_threshold_for_show: [0.8]
+    #判断是否找到嵌件的iou阈值
+    test_iou_thresh: 0.2
+    #综合测试通过召回率最低标准
+    recall_threshold: 0.95
+    #综合测试通过精确率最低标准
+    precision_threshold: 0.97
+    #测试结果阈值筛选保存文件名称，将会保存到test_result_save_path路径下，必须设置，建议按照工件号来设置，这样每个工件测试结果会保存为一个独立得参数文件
+    object_threshold_select_save_name: "None"
+    #保障准确率要求条件下检测得分最低阈值
+    detection_threshold_min: 0.2
+    #保障准确率要求条件下分类得分最低阈值
+    classify_threshold_min: 0.8
+

@@ -1,0 +1,23 @@
+训练检测模型：
+#用sh脚本训练
+sudo bash ./train_detection.sh ./data/config/config_project.yaml ./data/config/config_common.yaml
+#用python脚本训练
+python3 train_detection_auto.py --config_project=./data/config/config_project.yaml --config_common=./data/config/config_common.yaml
+
+分类模型训练：
+#用sh脚本训练
+sudo bash ./train_classify.sh ./data/config/config_project.yaml ./data/config/config_common.yaml
+#用python脚本训练
+python3 train_classify_auto.py --config_project=./data/config/config_project.yaml --config_common=./data/config/config_common.yaml
+
+综合测试：
+#用sh脚本测试
+sudo bash ./combine_test.sh ./data/config/config_project.yaml ./data/config/config_common.yaml
+#用python脚本测试
+python3 combine_test_auto.py --config_project=./data/config/config_project.yaml --config_common=./data/config/config_common.yaml
+
+#分类模型测试
+#用sh脚本测试
+sudo bash ./classify_test.sh ./data/config/config_project.yaml ./data/config/config_common.yaml
+#用python脚本测试
+python3 classify_test_auto.py --config_project=./data/config/config_project.yaml --config_common=./data/config/config_common.yaml
