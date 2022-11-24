@@ -31,6 +31,8 @@ def requestWithSign(path, params, host="http://ai-openapi.gmm01.com/"): #host="h
         result = result['data']
     else:
         result = None
+    if result == None:
+        result = []
     return result
 
 
@@ -59,14 +61,25 @@ def getHttp(url):
     return str
 
 
-def get_data(logger, batch_list, project_name="sjht", delete_labels=[], nfs_mount_path=""):
+def get_data(logger, batch_list, project_name="sjht", delete_labels=[], nfs_mount_path="", beginIndex=0, pageSize=100):
     not_data_batch = []
     batch_data = []
     for batch in batch_list:
         batch = batch.split("\n")[0]
-        data = requestWithSign("aiadminapi/GetImageRecord/listByWhere", {"batchNo": batch, "pageSize": 10000, "belongBusiness": project_name, "handlerStatus": 2,
+        # data = requestWithSign("aiadminapi/GetImageRecord/listByWhere", {"batchNo": batch, "pageSize": 10000, "belongBusiness": project_name, "handlerStatus": 2,
+        #                         "status": 1})
+        data = list()
+        while True:
+            data_ = requestWithSign("aiadminapi/GetImageRecord/listByWhere", {"batchNo": batch, "beginIndex":beginIndex, "pageSize": pageSize, "belongBusiness": project_name, "handlerStatus": 2,
                                 "status": 1})
-        if data is None:
+            data.extend(data_)
+            if len(data_) < pageSize:
+                beginIndex = 0
+                break
+            else:
+                beginIndex += pageSize
+
+        if data == []:
             not_data_batch.append(batch)
             continue
 
@@ -102,13 +115,24 @@ def get_data(logger, batch_list, project_name="sjht", delete_labels=[], nfs_moun
 
 
 
-def get_data_val(logger, batch_list, project_name="sjht", delete_labels=[], nfs_mount_path=""):
+def get_data_val(logger, batch_list, project_name="sjht", delete_labels=[], nfs_mount_path="", beginIndex=0, pageSize=200):
     not_data_batch = []
     batch_data = []
     for batch in batch_list:
         batch = batch.split("\n")[0]
-        data = requestWithSign("aiadminapi/GetImageRecord/listByWhere", {"batchNo": batch, "pageSize": 10000, "belongBusiness": project_name})
-        if data is None:
+        # data = requestWithSign("aiadminapi/GetImageRecord/listByWhere", {"batchNo": batch, "pageSize": 10000, "belongBusiness": project_name})
+
+        data = list()
+        while True:
+            data_ = requestWithSign("aiadminapi/GetImageRecord/listByWhere", {"batchNo": batch, "beginIndex": beginIndex, "pageSize": pageSize, "belongBusiness": project_name})
+            data.extend(data_)
+            if len(data_) < pageSize:
+                beginIndex = 0
+                break
+            else:
+                beginIndex += pageSize
+        # if data is None:
+        if data == []:
             not_data_batch.append(batch)
             continue
 
@@ -144,13 +168,24 @@ def get_data_val(logger, batch_list, project_name="sjht", delete_labels=[], nfs_
     return batch_data
 
 
-def get_data_background(logger, batch_list, project_name="sjht", delete_labels=[], nfs_mount_path=""):
+def get_data_background(logger, batch_list, project_name="sjht", delete_labels=[], nfs_mount_path="", beginIndex=0, pageSize=200):
     not_data_batch = []
     batch_data = []
     for batch in batch_list:
         batch = batch.split("\n")[0]
-        data = requestWithSign("aiadminapi/GetImageRecord/listByWhere", {"batchNo": batch, "pageSize": 10000, "belongBusiness": project_name})
-        if data is None:
+        # data = requestWithSign("aiadminapi/GetImageRecord/listByWhere", {"batchNo": batch, "pageSize": 10000, "belongBusiness": project_name})
+
+        data = list()
+        while True:
+            data_ = requestWithSign("aiadminapi/GetImageRecord/listByWhere", {"batchNo": batch, "beginIndex":beginIndex, "pageSize": pageSize, "belongBusiness": project_name})
+            data.extend(data_)
+            if len(data_) < pageSize:
+                beginIndex = 0
+                break
+            else:
+                beginIndex += pageSize
+        # if data is None:
+        if data == []:
             not_data_batch.append(batch)
             continue
 

@@ -1,0 +1,228 @@
+project_name: "syanght_plastic_v1.5"
+data_set:
+    #训练相关数据路径
+    #批次信息，训练检测模型、分类模型、测试三个过程中，如果设置了批次信息，会根据批次信息重新拉数据，并更新到train_file_path，val_file_classify文件，
+    #也可设置为“None”，此时会使用train_file_path，val_file_classify
+    train_batch_path: None
+    #nfs挂载路径，拉取数据时需要，训练检测模型必须设置，为了提高读取图片速度，训练第一轮会把数据保存到本地（data_save_path_temp），保存地址即把图片文件路径中得nfs挂载路径（nfs_mount_path）替换为本地存储路径（data_save_path_temp）
+    nfs_mount_path: None
+    #本地数据缓存路径，训练检测模型必须设置
+    data_save_path_temp: None
+    #训练集信息存放文件路径，训练检测模型、分类模型、测试三个过程中都必须设置，如果设置了train_batch_path，该文件会被更新，在训练过程中也会被打乱顺序
+    detection_train_file_path: None
+    #测试集信息存放文件路径，，训练检测模型、分类模型、测试三个过程中都必须设置，如果设置了train_batch_path，该文件会被更新
+    detection_val_file_path: None
+    #anchor，训练检测模型、测试过程中都必须设置，实际应用过程中会在该数据基础上乘2.5倍
+    anchors: None
+    #检测模型类别信息，训练检测模型、测试过程必须设置，检测模型训练过程中所有嵌件都合并为1类，因此所有工厂，该文件都一样
+    detection_class_name_path: data/train_data/sjht_classnames_big_class.txt
+    #分类模型嵌件类别信息，训练检测模型、分类模型、测试三个过程中必须设置，设置原则是该模型需要进行检测得嵌件都需要包含在该文件内
+    class_name_path: None
+    #检测模型初始化参数时加载得模型，检测模型训练必须设置
+    detection_model_restore_path: data/darknet_weights/yolov3.ckpt
+    #分类模型初始化参数时加载得模型，分类模型训练必须设置
+    classify_model_restore_path: data/darknet_weights/yolov3_classfication.ckpt
+#    classify_model_restore_path: "/home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/lzbl/sjht-lzbl-271/1.0/model_and_temp_file/classify_model/202107121918_classify_model_default_name"
+    #模型及临时文件、测试结果储路径，检测模型训练、测试必须设置，用于存放检测模型，测试时也会从该路径加载检测模型
+    model_and_temp_file_save_path: None
+    #训练集嵌件裁剪下来存放路径，会在model_and_temp_file_save_path下面新建该文件夹，训练过程中会根据train_file_path文件裁剪到该路径下，该路径必须为空文件夹
+    classify_train_data_save_dir_name: train
+    #测试集嵌件裁剪下来存放文件夹名称，会在model_and_temp_file_save_path下面新建该文件夹，训练过程中会根据train_file_path文件裁剪到该文件夹，该路径必须为空文件夹
+    classify_val_data_save_dir_name: val
+    #嵌件训练集存储文件，训练分类必须设置，嵌件裁剪下来后，会根据一定格式存储在该路径下，存放在model_and_temp_file_save_path
+    classify_train_file: train_data_classify.txt
+    #嵌件测试集存储文件，训练分类必须设置，嵌件裁剪下来后，会根据一定格式存储在该路径下，存放在model_and_temp_file_save_path
+    classify_val_file:  val_data_classify.txt
+    #检测模型存放文件夹名称, 会在model_and_temp_file_save_path下面新建该文件
+    detection_model_save_dir_name: model_detection
+    #分类模型存放文件夹名称, 会在model_and_temp_file_save_path下面新建该文件
+    classify_model_save_dir_name: model_classify
+    #log 存储文件夹名称，会在model_and_temp_file_save_path下面新建该文件
+    log_save_dir_name: logs
+    #综合测试结果存放文件夹名称，会在model_and_temp_file_save_path下面新建该文件
+    combine_test_result_save_dir_name: combine_test_result
+    #综合测试csv存放文件夹名称,会在combine_test_result_save_dir_name下面新建该文件夹存放
+    csv_save_dir_name: result_csv
+    #综合测试错误数据存放文件夹名称，会在combine_test_result_save_dir_name下面新建该文件夹存放
+    wrong_label_save_dir_name: wrong_img
+    #分类测试结果保存文件夹名称
+    classify_test_result_save_dir_name: classify_test_result
+    #背景图片存储路径，训练检测模型时可选择设置，该路径下可以放多个子文件夹，子文件夹下面存放图片，如果遇到嵌件安装与不安装难以区分情况下，可以把背景数据存放到该路径下，训练时会把背景贴到数据中进行训练
+    add_background_path: None
+    #训练集和测试集在拉取数据过程中要删除得类别，如果设置了train_batch_path，就必须设置，可以多设置，即使没有出现在标注文件中也没关系 , "gj"
+    delete_labels: ["background", "R", "L", "L1", "R1", "QL", "QR", "dcf" , "hsfxpmgp03h", "wazhsfxpmgp", "slqjkd", "sjkd", "hssjqj09h"]
+    #背景数据集在拉取数据过程中要删除得类别，如果设置了train_batch_path，就必须设置，和delete_labels区别在于，背景信息中可以包含工件位置信息
+    delete_labels_background: ["background", "R", "L", "L1", "R1", "QL", "QR", "dcf", "hsfxpmgp03h", "wazhsfxpmgp", "slqjkd", "sjkd", "hssjqj09h"]
+    #训练过程中该类别会被填充为0，目前都是默认该参数就行，非必须设置参数
+    fill_zero_label_names: ["wxqy"]
+    # 原始图片尺寸 (w, h, c)
+    oriSize: [5472, 3648, 3]
+#    oriSize: [2448, 2048, 3]
+    # 是否合并所有类别默认合并 多分类检测False
+    mergeLabel: True
+    # 目标检测时是否resize，None or [w, h], 填充resize, 专为裁截时尺寸超出原始尺寸设置
+#    detResize: [2448, 2448]
+#    detResize: [1530, 1280]
+    detResize: None
+    # 目标检测时数据增强旋转角度范围
+    detRotate: 360
+    # anchor 扩充比例，乘以该比例后为原图box框的大小
+#    anchorRotate: 0.4
+#    anchorRotate: 0.5
+#    anchorRotate: 1.0
+#    anchorRotate: 1.5
+#    anchorRotate: 2.0
+    anchorRotate: 2.5
+#    anchorRotate: 4.0
+#    anchorRotate: 5.0
+#    anchorRotate: 10
+#    anchorRotate: 15
+    # 目标检测过滤尺寸大小[w, h]
+    detFilterSize: [4, 4]
+    #是否在训练分类模型时裁剪嵌件，默认为True，如果设置为False，不会进行裁剪，会直接用上一次裁剪得数据
+    clsDirName: data_classify
+    need_cut_object: True
+model_set:
+    #检测模型存储名称，非必须，有默认参数
+    detection_model_save_name: detection_model_default_name
+    #是否仅采用前面两层feature_map来识别目标，用于提速，大致能提高20%左右，如果都是小目标，训练效果应该没有大的影响，默认为False
+    train_with_two_feature_map: False
+    #检测模型训练参数加载区域，如果设置为['None']，则会加载所有参数，如果想从训练好的模型继续训练，可以设置为['None']
+    restore_part: ['yolov3/darknet53_body']
+#    restore_part: ['None']
+    #训练检测模型中更新参数区域，设置为["None"]更新所有参数， 设置为["yolov3/yolov3_head"],则只更新网络头部
+    update_part: ["None"]
+    # input param
+    #训练检测模型图片尺寸
+    image_size: [1024, 1024]
+#    image_size: [512, 512]
+    #训练检测模型image_size[0]的缩放尺寸，必须满足 max(image_size[0]*scale) < min(img_ori.shape)    (5472, 3648) (5472, 3648) (2448, 2048) (2448, 2048) (2448, 2048) (2448, 2048)
+#    scale: [ 1.56, 2.34 ] # 原图(5472, 3648)-(1024, 1024)，扩充后anchor*anchorRotate*scale 为原图anchor的范围
+    scale: [ 1.30, 2.50 ] # 原图(5472, 3648)-(1024, 1024)，测试(3008, 2016)
+#    scale: [ 3.0, 3.5 ] # 原图(5472, 3648)-(1024, 1024)，昆山顺普322缝隙检测 测试(1562, 1042)
+#    scale: [1.2, 2.0]
+#    scale: [1.0, 2.0]
+#    scale: [0.8, 1.25] # 原图(2448, 2048)-(1024, 1024)
+#    scale: [4.2, 4.7] # 原图(2448, 2048)-(512, 512)
+#    scale: [5, 6.8] # 原图(5472, 3648)-(912, 608)
+#    scale: [7.04, 7.125] # 原图(5472, 3648)-(, 608)
+    #是否取消按照label的概率随机裁剪，默认不取消。
+    quit_label_cut: False
+    #训练过程中数据处理进程数
+    num_threads: 32
+    #训练中预加载得数据量
+    prefetech_buffer: 100
+    #检测模型训练是否采用灰度图进行训练
+    train_with_gray: True
+    # model architecture
+    #检测模型驱赶网络类型 can be mobilenetv3、mobilenetv2、darknet53、darknet53_prun、mobilenetv3_add_zoom_factor
+    backbone_name: darknet53
+    # optimization
+    #优化函数类型 可以是[sgd, momentum, adam, rmsprop]其中一个
+    optimizer_name: adam
+    #检测模型训练学习率初始化值
+    learning_rate_init: 5.e-4
+    #训练检测模型中学习率变化类型 可以是["exponential", 'fixed']，第一个随着步数变小，第二个一直固定学习率不变
+    lr_type: exponential
+    #检测模型训练多少轮降一次学习率
+    lr_decay_freq_epoch: 5
+    #检测模型训练学习率变换因子，默认每次变为原来0.5倍
+    lr_decay_factor: 0.5
+    #检测模型学习率最小值
+    lr_lower_bound: 5.e-7
+    #是否采用warm_up
+    use_warm_up: False
+    #warm_up 初始化学习率
+    warm_up_lr: 1.e-5
+    #warm_up轮数
+    warm_up_epoch: 5
+    #gpu设置，训练检测模型可以是多gpu（"0,1", "1,2,3", ....），也可以是单gpu("0", "1", "2", .....)
+    detection_train_gpu_device: "0,1"
+    #gpu设置，分类和测试中如果设置多个，会选择第一个使用
+    other_gpu_device: "2,3"
+    #检测模型batch_size
+    detection_batch_size: 2
+    #检测模型训练轮数，非必须，默认为100
+    detection_total_epoches: 100
+    #loss param
+    #l2损失比重
+    l2_loss_weight: 4.e-5
+    #train param
+    # 检测模型训练多少步保存一次模型epoch，可为小数
+    detection_save_freq: 2
+    #分类模型参数
+    #分类模型存储名称。非必须，有默认参数
+    classify_model_save_name: "classify_model_default_name"
+    #分类模型推断尺寸
+    classify_size: [192, 192]
+    #嵌件分类的时候扩充出去的尺寸,等同下面ext_ratio
+    extension_ratio: 1.8 #嵌件分类的时候扩充出去的尺寸
+    # 分类训练随机裁剪比例，为0时不裁, 一般为(ext_ratio-0.95*test_ext_ratio)/ext_ratio
+#    cutRatio: 0.79
+    cutRatio: 0.21
+#    cutRatio: 0
+    #是否把嵌件扩充到矩形再进行分类，训练分类和测试时使用，默认为True
+    fill_box2square: True #是否把嵌件扩充到矩形再进行分类
+    #分类模型l2损失比重
+    weight_decay: 0.0005
+    #分类模型训练动量参数
+    momentum: 0.9
+    #分类模型batch size
+    classify_batch_size: 64
+    #分类模型初始化学习率
+    classify_init_learning_rate: 0.01
+    #训练分类总轮数
+    classify_total_epochs: 40
+    #单独测试分类模型准确率时，会根据该得分阈值进行筛选，如果低于该值认为没有找到，非必须
+    classify_model_test_score: 0.
+#以下参数测试过程中使用，有默认值，非必须
+test_other_info_set:
+     #目标检测得分最小阈值
+    score_thresh_detection: 0.01
+    #目标检测nms阈值，当嵌件有相互嵌套情况建议设置为0.5，默认0.2，否者可能导致嵌件被过滤掉
+    iou_thresh: 0.2
+    #分类得分最小阈值
+    score_thresh_classify: 0.01
+    #同类别nms阈值
+    labels_nms_threshold: 0.1
+    #检测模型推断尺寸， [w，h]    (5472, 3648) (5472, 3648) (2448, 2048) (2448, 2048) (2448, 2048)
+#    new_size_detection: [2720, 1824]
+#    new_size_detection: [3420, 2280]
+#    new_size_detection: [3040, 2026]
+    new_size_detection: [3008, 2016]
+#    new_size_detection: [2448, 2048]
+#    new_size_detection: [1024, 1024]
+#    new_size_detection: [1024, 1024]
+#    new_size_detection: [1562, 1042]
+#    new_size_detection: [1530, 1280]
+#    new_size_detection: [1530, 1280]
+#    new_size_detection: [912, 608]
+#    new_size_detection: [612, 512]
+#    new_size_detection: [768, 512]
+    #小于该尺寸的嵌件将被过滤掉
+    size_min: 0
+    #是否进行分类，如果只有一个类别，不需要进行分类
+    do_classify: True
+    # 是否把测试过程中分类错误和漏检的box存储下来，以便分析
+    writeWBox: True
+    # 是否把测试过程中分类错误或漏检的发生的整图存储下来，以便分析
+    writeWFull: True
+    #是否把测试错误的数据显示出来
+    show_wrong_data: False
+    #保障准确率要求条件下检测得分最低阈值
+    detection_threshold_for_show: [0.2]
+    #保障准确率要求条件下分类得分最低阈值
+    classify_threshold_for_show: [0.8]
+    #判断是否找到嵌件的iou阈值
+    test_iou_thresh: 0.2
+    #综合测试通过召回率最低标准
+    recall_threshold: 0.95
+    #综合测试通过精确率最低标准
+    precision_threshold: 0.97
+    #测试结果阈值筛选保存文件名称，将会保存到test_result_save_path路径下，必须设置，建议按照工件号来设置，这样每个工件测试结果会保存为一个独立得参数文件
+    object_threshold_select_save_name: default_gj.txt
+    #保障准确率要求条件下检测得分最低阈值
+    detection_threshold_min: 0.2
+    #保障准确率要求条件下分类得分最低阈值
+    classify_threshold_min: 0.8
+

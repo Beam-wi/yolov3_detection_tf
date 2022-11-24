@@ -549,39 +549,39 @@ class yolov3_trt(object):
 
                 with tf.variable_scope('yolov3_head'):
                     if not self.train_with_two_feature_map:
-                        route_1, route_2, route_3 = routes
-                        inter1, net = yolo_block(route_3, 512)
+                        route_1, route_2, route_3 = routes  # (?, 128, 128, 256) (?, 64, 64, 512) (?, 32, 32, 1024)
+                        inter1, net = yolo_block(route_3, 512)  # (?, 32, 32, 512) (?, 32, 32, 1024)
                         feature_map_1 = slim.conv2d(net, 3 * (5 + self.class_num), 1,
                                                     stride=1, normalizer_fn=None,
-                                                    activation_fn=None, biases_initializer=tf.zeros_initializer())
-                        feature_map_1 = tf.identity(feature_map_1, name='feature_map_1')
-                        inter1 = conv2d(inter1, 256, 1)
-                        inter1 = upsample_layer(inter1, route_2.get_shape().as_list())
+                                                    activation_fn=None, biases_initializer=tf.zeros_initializer())  # (?, 32, 32, 18)
+                        feature_map_1 = tf.identity(feature_map_1, name='feature_map_1')  # (?, 32, 32, 18)
+                        inter1 = conv2d(inter1, 256, 1)  # (?, 32, 32, 256)
+                        inter1 = upsample_layer(inter1, route_2.get_shape().as_list())  # (?, 64, 64, 256)
                         #
                         # inter1 = slim.conv2d(inter1, inter1.get_shape().as_list()[3], 3,
                         #             stride=1, biases_initializer=tf.zeros_initializer())
-                        concat1 = tf.concat([inter1, route_2], axis=3)
+                        concat1 = tf.concat([inter1, route_2], axis=3)  # (?, 64, 64, 768)
 
-                        inter2, net = yolo_block(concat1, 256)
+                        inter2, net = yolo_block(concat1, 256)  # (?, 64, 64, 256) (?, 64, 64, 512)
                         feature_map_2 = slim.conv2d(net, 3 * (5 + self.class_num), 1,
                                                     stride=1, normalizer_fn=None,
-                                                    activation_fn=None, biases_initializer=tf.zeros_initializer())
-                        feature_map_2 = tf.identity(feature_map_2, name='feature_map_2')
+                                                    activation_fn=None, biases_initializer=tf.zeros_initializer())  # (?, 64, 64, 18)
+                        feature_map_2 = tf.identity(feature_map_2, name='feature_map_2')  # (?, 64, 64, 18)
 
-                        inter2 = conv2d(inter2, 128, 1)
-                        inter2 = upsample_layer(inter2, route_1.get_shape().as_list())
+                        inter2 = conv2d(inter2, 128, 1)  # (?, 64, 64, 128)
+                        inter2 = upsample_layer(inter2, route_1.get_shape().as_list())  # (?, 128, 128, 128)
 
                         # inter2 = slim.conv2d(inter2, inter2.get_shape().as_list()[3], 3,
                         #                      stride=1, biases_initializer=tf.zeros_initializer())
-                        concat2 = tf.concat([inter2, route_1], axis=3)
+                        concat2 = tf.concat([inter2, route_1], axis=3)  # (?, 128, 128, 384)
 
-                        _, feature_map_3 = yolo_block(concat2, 128)
+                        _, feature_map_3 = yolo_block(concat2, 128)  # (?, 128, 128, 128) (?, 128, 128, 256)
                         feature_map_3 = slim.conv2d(feature_map_3, 3 * (5 + self.class_num), 1,
                                                     stride=1, normalizer_fn=None,
-                                                    activation_fn=None, biases_initializer=tf.zeros_initializer())
-                        feature_map_3 = tf.identity(feature_map_3, name='feature_map_3')
+                                                    activation_fn=None, biases_initializer=tf.zeros_initializer())  # (?, 128, 128, 18)
+                        feature_map_3 = tf.identity(feature_map_3, name='feature_map_3')  # (?, 128, 128, 18)
 
-                        return feature_map_1, feature_map_2, feature_map_3
+                        return feature_map_1, feature_map_2, feature_map_3  #   # (?, 32, 32, 18) (?, 64, 64, 18) (?, 128, 128, 18)
                     else:
                         route_1, route_2 = routes
                         inter2, net = yolo_block(route_2, 256)
@@ -612,9 +612,9 @@ class yolov3_trt(object):
         anchors: shape: [3, 2]
         '''
         # NOTE: size in [h, w] format! don't get messed up!
-        grid_size = feature_map.shape.as_list()[1:3]  # [13, 13]
+        grid_size = feature_map.shape.as_list()[1:3]  # [32, 32]
         # the downscale ratio in height and weight
-        ratio = tf.cast(self.img_size / grid_size, tf.float32)
+        ratio = tf.cast(self.img_size / grid_size, tf.float32)  # (2,)
         # rescale the anchors to the feature_map
         # NOTE: the anchor is in [w, h] format!
         rescaled_anchors = [(anchor[0] / ratio[1], anchor[1] / ratio[0]) for anchor in anchors]
@@ -627,21 +627,25 @@ class yolov3_trt(object):
         # box_sizes: [N, 13, 13, 3, 2] last_dimension: [width, height]
         # conf_logits: [N, 13, 13, 3, 1]
         # prob_logits: [N, 13, 13, 3, class_num]
-        box_centers, box_sizes, conf_logits, prob_logits = tf.split(feature_map, [2, 2, 1, self.class_num], axis=-1)
+        # box_centers, box_sizes, conf_logits, prob_logits = tf.split(feature_map, [2, 2, 1, self.class_num], axis=-1)
+        box_centers = feature_map[:, :, :, :, 0:2]  # (?, 32, 32, 3, 2)
+        box_sizes = feature_map[:, :, :, :, 2:4]  # (?, 32, 32, 3, 2)
+        conf_logits = feature_map[:, :, :, :, 4:5]  # (?, 32, 32, 3, 1)
+        prob_logits = feature_map[:, :, :, :, 5:5+self.class_num]  # (?, 32, 32, 3, 1)
         box_centers = tf.nn.sigmoid(box_centers)
 
         # use some broadcast tricks to get the mesh coordinates
-        grid_x = tf.range(grid_size[1], dtype=tf.int32)
-        grid_y = tf.range(grid_size[0], dtype=tf.int32)
-        grid_x, grid_y = tf.meshgrid(grid_x, grid_y)
-        x_offset = tf.reshape(grid_x, (-1, 1))
-        y_offset = tf.reshape(grid_y, (-1, 1))
-        x_y_offset = tf.concat([x_offset, y_offset], axis=-1)
+        grid_x = tf.range(grid_size[1], dtype=tf.int32)  # (32,)
+        grid_y = tf.range(grid_size[0], dtype=tf.int32)  # (32,)
+        grid_x, grid_y = tf.meshgrid(grid_x, grid_y)  # (32, 32) (32, 32)
+        x_offset = tf.reshape(grid_x, (-1, 1))  # (1024, 1)
+        y_offset = tf.reshape(grid_y, (-1, 1))  # (1024, 1)
+        x_y_offset = tf.concat([x_offset, y_offset], axis=-1)  # (1024, 2)
         # shape: [13, 13, 1, 2]
-        x_y_offset = tf.cast(tf.reshape(x_y_offset, [grid_size[0], grid_size[1], 1, 2]), tf.float32)
+        x_y_offset = tf.cast(tf.reshape(x_y_offset, [grid_size[0], grid_size[1], 1, 2]), tf.float32)  # (32, 32, 1, 2)
 
         # get the absolute box coordinates on the feature_map
-        box_centers = box_centers + x_y_offset
+        box_centers = box_centers + x_y_offset  # (?, 32, 32, 3, 2)
         # rescale to the original image scale
         box_centers = box_centers * ratio[::-1]
 
@@ -652,10 +656,11 @@ class yolov3_trt(object):
 
         # shape: [N, 13, 13, 3, 4]
         # last dimension: (center_x, center_y, w, h)
+        # boxes = tf.concat([box_centers, box_sizes], axis=-1)
         boxes = tf.concat([box_centers, box_sizes], axis=-1)
 
         # shape:
-        # x_y_offset: [13, 13, 1, 2]
+        # x_y_offset: [13, 13, 1, 2]  步长下标
         # boxes: [N, 13, 13, 3, 4], rescaled to the original image scale
         # conf_logits: [N, 13, 13, 3, 1]
         # prob_logits: [N, 13, 13, 3, class_num]
@@ -708,7 +713,12 @@ class yolov3_trt(object):
         # shape: [N, (13*13+26*26+52*52)*3, class_num]
         probs = tf.concat(probs_list, axis=1)
 
-        center_x, center_y, width, height = tf.split(boxes, [1, 1, 1, 1], axis=-1)
+        # center_x, center_y, width, height = tf.split(boxes, [1, 1, 1, 1], axis=-1)
+        center_x = boxes[:, :, 0:1]
+        center_y = boxes[:, :, 1:2]
+        width = boxes[:, :, 2:3]
+        height = boxes[:, :, 3:4]
+
         # center_x = center_x * 2176/2720
         # center_y = center_y * 1459/1824
         # width = width * 2176/2720
@@ -735,7 +745,7 @@ class yolov3_trt(object):
         # N: batch_size
         N = tf.cast(tf.shape(feature_map_i)[0], tf.float32)
 
-        x_y_offset, pred_boxes, pred_conf_logits, pred_prob_logits = self.reorg_layer(feature_map_i, anchors)
+        x_y_offset, pred_boxes, pred_conf_logits, pred_prob_logits = self.reorg_layer(feature_map_i, anchors)  # [13, 13, 1, 2]步长下标  [N, 13, 13, 3, 4] [N, 13, 13, 3, 1] [N, 13, 13, 3, class_num]
         # pred_boxes,反馈到原始图片上的中心和长宽, conf,prob没有激活函数
 
         ###########
@@ -749,24 +759,24 @@ class yolov3_trt(object):
 
         ignore_mask = tf.TensorArray(tf.float32, size=1, dynamic_size=True)
 
-        num_picture = tf.cast(tf.shape(feature_map_i)[0], tf.int32)
+        num_picture = tf.cast(tf.shape(feature_map_i)[0], tf.int32)  # ()
 
         def loop_body(id, ignore_mask):
-            valid_true_boxes = tf.boolean_mask(y_true[id:id + 1][..., 0:4],
-                                               tf.cast(object_mask[id:id + 1][..., 0], 'bool'))
-            valid_true_box_xy = valid_true_boxes[:, 0:2]
-            valid_true_box_wh = valid_true_boxes[:, 2:4]
-            pred_box_xy = pred_boxes[id:id + 1][..., 0:2]
-            pred_box_wh = pred_boxes[id:id + 1][..., 2:4]
-            iou = self.broadcast_iou(valid_true_box_xy, valid_true_box_wh, pred_box_xy, pred_box_wh)
-            best_iou = tf.reduce_max(iou, axis=-1)
-            ignore_mask_ = tf.cast(best_iou < 0.5, tf.float32)
-            ignore_mask_ = tf.expand_dims(ignore_mask_, -1)
+            valid_true_boxes = tf.boolean_mask(y_true[id:id + 1][..., 0:4],  # y_true[id:id + 1][..., 0:4]: (1, 32, 32, 3, 4)
+                                               tf.cast(object_mask[id:id + 1][..., 0], 'bool'))  # (1, 32, 32, 3, 1) 返回 (m, 4) m为置信度为True的那个像素点个数
+            valid_true_box_xy = valid_true_boxes[:, 0:2]  # (m, 2)
+            valid_true_box_wh = valid_true_boxes[:, 2:4]  # (m, 2)
+            pred_box_xy = pred_boxes[id:id + 1][..., 0:2]  # (1, 32, 32, 3, 2)
+            pred_box_wh = pred_boxes[id:id + 1][..., 2:4]  # (1, 32, 32, 3, 2)
+            iou = self.broadcast_iou(valid_true_box_xy, valid_true_box_wh, pred_box_xy, pred_box_wh)  # (1, 32, 32, 3, m) 把预测的每个像素点都与存在的真实box算iou
+            best_iou = tf.reduce_max(iou, axis=-1)  # (1, 32, 32, 3) 每个像素找到最大iou的那个真实box对应下标
+            ignore_mask_ = tf.cast(best_iou < 0.5, tf.float32)  # (1, 32, 32, 3)
+            ignore_mask_ = tf.expand_dims(ignore_mask_, -1)  # (1, 32, 32, 3, 1)
             ignore_mask = ignore_mask.write(id, ignore_mask_[0])
             return id + 1, ignore_mask
 
         _, ignore_mask = tf.while_loop(lambda id, *args: id < num_picture, loop_body, [0, ignore_mask])
-        ignore_mask = ignore_mask.stack()
+        ignore_mask = ignore_mask.stack()  # (?, 32, 32, 3, 1)
 
         # valid_true_boxes = tf.boolean_mask(y_true[..., 0:4], tf.cast(object_mask[..., 0], 'bool'))#真实的目标数据
 
@@ -792,8 +802,8 @@ class yolov3_trt(object):
         # get xy coordinates in one cell from the feature_map
         # numerical range: 0 ~ 1
         # shape: [N, 13, 13, 3, 2]
-        true_xy = y_true[..., 0:2] / ratio[::-1] - x_y_offset
-        pred_xy = pred_box_xy / ratio[::-1] - x_y_offset
+        true_xy = y_true[..., 0:2] / ratio[::-1] - x_y_offset  # (N, 32, 32, 3, 2)
+        pred_xy = pred_box_xy / ratio[::-1] - x_y_offset  # (N, 32, 32, 3, 2)
 
         # get_tw_th
         # numerical range: 0 ~ 1
@@ -876,6 +886,7 @@ class yolov3_trt(object):
             loss_wh += result[1]
             loss_conf += result[2]
             loss_class += result[3]
+
         total_loss = loss_xy + loss_wh + loss_conf + loss_class
         return [total_loss, loss_xy, loss_wh, loss_conf, loss_class]
 
@@ -914,7 +925,6 @@ class yolov3_trt(object):
         iou = intersect_area / (pred_box_area + true_box_area - intersect_area + 1e-10)
 
         return iou
-
 
 
 class darknet_plus(object):
@@ -961,5 +971,6 @@ class darknet_plus(object):
                                                     kernel_initializer=tf.contrib.layers.xavier_initializer(),
                                                     bias_initializer=tf.zeros_initializer(), use_bias=False)
 
+            # return logits_output, out_5, route_1, out_1, downsample_1, concat1, downsample_2, concat2, route_2, route_3
             return logits_output, out_5
 

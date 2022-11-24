@@ -2,20 +2,26 @@ import os
 import random
 import cv2
 import math
+import time
 import tensorflow as tf
 import numpy as np
 import utils.globalvar as globalvar
 from utils.model import darknet_plus
 import albumentations as A
 from shutil import copyfile
+from utils.model import darknet_plus as yolov3_classfy
+from utils.data_utils import readImg
+from utils.aug import imRotate
 
-#s随机打乱训练数据集顺序
+
+# 随机打乱训练数据集顺序
 def shuffle_and_overwrite(file_name):
     content = open(file_name, 'r').readlines()
     random.shuffle(content)
     with open(file_name, 'w') as f:
         for line in content:
             f.write(line)
+
 
 def rename_path(img_paths):
     for img_path in img_paths:
@@ -26,36 +32,37 @@ def rename_path(img_paths):
         print(img_path, img_path_new)
         os.rename(img_path, img_path_new)
 
-#从文件夹中获取训练数据，并写入文件中
-def builddata_shuffle_and_overwrite(data_path, file_name, class_name, name2id,  mode, max_num=1000.):
-    data_path = data_path.strip()
-    child_paths = os.listdir(data_path)
+
+# 从文件夹中获取训练数据，并写入文件中
+def builddata_shuffle_and_overwrite(data_dir, file_path, class_name, name2id,  mode, max_num=1000.):
+    data_dir = data_dir.strip()
+    child_paths = os.listdir(data_dir)
     lines = []
-    lines_temps = [[] for name in class_name]
+    lines_temps = [[] for name in name2id.keys()]
     for child_path in child_paths:
-        child_path = os.path.join(data_path, child_path)
+        child_path = os.path.join(data_dir, child_path)
         for name in os.listdir(child_path):
             if name in list(name2id.keys()):
                 idx = name2id[name]
-                class_path = os.path.join(data_path, child_path, name)
-                if name not in ["background"]: #这里写死，所有背景必须放在这个名字文件夹下面
+                class_path = os.path.join(data_dir, child_path, name)
+                if name not in ["background"]:  # 这里写死，所有背景必须放在这个名字文件夹下面
                     for img_name in os.listdir(class_path):
                         if img_name.split(".")[-1] == "jpg":
-                            path = os.path.join(data_path, child_path, name, img_name)
-                            if os.path.getsize(path) >= 1024:
+                            path = os.path.join(data_dir, child_path, name, img_name)
+                            if os.path.getsize(path) >= 800:
                                 line = path + " " + str(idx)
                                 lines_temps[idx].append(line)
                 else:
                     for background_name in os.listdir(class_path):
-                        child_background_path = os.path.join(data_path, child_path, name, background_name)
+                        child_background_path = os.path.join(data_dir, child_path, name, background_name)
                         for img_name in os.listdir(child_background_path):
                             if img_name.split(".")[-1] == "jpg":
-                                path = os.path.join(data_path, child_path, name, background_name, img_name)
-                                if os.path.getsize(path) >= 1024:
+                                path = os.path.join(data_dir, child_path, name, background_name, img_name)
+                                if os.path.getsize(path) >= 800:
                                     line = path + " " + str(idx)
                                     lines_temps[idx].append(line)
             else:
-                globalvar.globalvar.logger.info_ai(meg="not find the name:%s in class names" % name)
+                globalvar.globalvar.logger.warning(f"{name} not in class names")
 
     if mode == "train":
         for lines_temp_id in range(len(lines_temps)):
@@ -68,8 +75,7 @@ def builddata_shuffle_and_overwrite(data_path, file_name, class_name, name2id,  
             random.shuffle(lines_temp)
             repetion_times = max(math.floor(max_num / len(lines_temp)), 1)
             add_num = int(max(max_num - repetion_times * len(lines_temp), 0))
-            globalvar.globalvar.logger.info_ai(meg="%s: max_num:%d, lines_num:%d, repetion_times:%d, add num:%d" % (class_name[lines_temp_id],
-            max_num, len(lines_temp), repetion_times, add_num))
+            globalvar.globalvar.logger.info(f"{class_name[lines_temp_id]}, max_num:{max_num}, lines_num:{len(lines_temp)}, repetion_times:{repetion_times}, add num:{add_num}")
 
             for time in range(repetion_times):
                 if len(lines_temp) > max_num:
@@ -89,13 +95,14 @@ def builddata_shuffle_and_overwrite(data_path, file_name, class_name, name2id,  
                 continue
             lines = lines + lines_temp
 
-    with open(file_name, 'w') as f:
+    with open(file_path, 'w', encoding="utf-8") as f:
         for line in lines:
             f.write(line)
             f.write("\n")
-    globalvar.globalvar.logger.info_ai("build %s data over, data len:%d"%(mode, len(lines)))
+    globalvar.globalvar.logger.info(f"{mode} data build over, data num is:{len(lines)}")
 
-#扩充函数
+
+# 扩充函数
 def data_augmentation(img, img_size, label_id, pic_path):
     def flip_rl(img):
         img = img[:, ::-1, :]
@@ -117,7 +124,7 @@ def data_augmentation(img, img_size, label_id, pic_path):
         def img_rotation(imgrgb, angle):
             rows, cols, channel = imgrgb.shape
             rotation = cv2.getRotationMatrix2D((cols / 2, rows / 2), angle, 1)
-            img_rotation = cv2.warpAffine(imgrgb, rotation, (cols, rows), borderValue=125)
+            img_rotation = cv2.warpAffine(imgrgb, rotation, (cols, rows), borderValue=128)
             return img_rotation
 
         angle = random.choice([90, 180])
@@ -197,17 +204,29 @@ def data_augmentation(img, img_size, label_id, pic_path):
                     output[i][j] = image[i][j]
         return output
 
-    def cut_random(imgrgb, cut_rate=0.1):
-        h, w, c = imgrgb.shape
-        cut_h_u = random.choice(range(1, max(int(h * cut_rate), 2)))
-        cut_h_d = random.choice(range(1, max(int(h * cut_rate), 2)))
-        cut_w_l = random.choice(range(1, max(int(w * cut_rate), 2)))
-        cut_w_r = random.choice(range(1, max(int(w * cut_rate), 2)))
-        h_cut = random.choice(range(0, cut_h_d + cut_h_u))
-        w_cut = random.choice(range(0, cut_w_l + cut_w_r))
-        imgrgb = imgrgb[h_cut:h - cut_h_d - cut_h_u + h_cut, w_cut:w - cut_w_r - cut_w_l + w_cut, :]
+    # def cut_random(imgrgb, cut_rate=0.1):
+    #     h, w, c = imgrgb.shape
+    #     cut_h_u = random.choice(range(1, max(int(h * cut_rate), 2)))
+    #     cut_h_d = random.choice(range(1, max(int(h * cut_rate), 2)))
+    #     cut_w_l = random.choice(range(1, max(int(w * cut_rate), 2)))
+    #     cut_w_r = random.choice(range(1, max(int(w * cut_rate), 2)))
+    #     h_cut = random.choice(range(0, cut_h_d + cut_h_u))
+    #     w_cut = random.choice(range(0, cut_w_l + cut_w_r))
+    #     imgrgb = imgrgb[h_cut:h - cut_h_d - cut_h_u + h_cut, w_cut:w - cut_w_r - cut_w_l + w_cut, :]
+    #
+    #     return imgrgb
 
-        return imgrgb
+    def cut_random(image, ratio=0.21):
+        ratio_ = round(random.uniform(*ratio), 2) if isinstance(ratio, (list, tuple)) else ratio
+        ori_w, ori_h = image.shape[1], image.shape[0]
+        h_min, h_max = min(int(ori_h*(1-ratio_)), int(ratio_*ori_h)), max(int(ori_h*(1-ratio_)), int(ratio_*ori_h))
+        w_min, w_max = min(int(ori_w*(1-ratio_)), int(ratio_*ori_w)), max(int(ori_w*(1-ratio_)), int(ratio_*ori_w))
+        # y0, y1 = random.randint(0, h_min-1), random.randint(h_max, ori_h-1)
+        # x0, x1 = random.randint(0, w_min-1), random.randint(w_max, ori_w-1)
+        y0, y1 = random.randint(0, h_min), random.randint(h_max, ori_h-1)
+        x0, x1 = random.randint(0, w_min), random.randint(w_max, ori_w-1)
+        new_img = image[y0: y1, x0:x1, :]
+        return new_img
 
     def cut_random_27(imgrgb, pic_path, cut_rate=0.25):
         # print("cut label 27")
@@ -287,17 +306,17 @@ def data_augmentation(img, img_size, label_id, pic_path):
 
         return img
 
-    def fill(image):
+    def fill(image, value=128):
         ori_w, ori_h = image.shape[1], image.shape[0]
         if ori_w >= ori_h:
             tmp = int((ori_w - ori_h) / 2)
-            image = cv2.copyMakeBorder(image, 0, tmp, 0, 0, cv2.BORDER_CONSTANT, value=[0, 0, 0])
-            image = cv2.copyMakeBorder(image, tmp, 0, 0, 0, cv2.BORDER_CONSTANT, value=[0, 0, 0])
+            image = cv2.copyMakeBorder(image, 0, tmp, 0, 0, cv2.BORDER_CONSTANT, value=[value, value, value])
+            image = cv2.copyMakeBorder(image, tmp, 0, 0, 0, cv2.BORDER_CONSTANT, value=[value, value, value])
 
         else:
             tmp = int((ori_h - ori_w) / 2)
-            image = cv2.copyMakeBorder(image, 0, 0, 0, tmp, cv2.BORDER_CONSTANT, value=[0, 0, 0])
-            image = cv2.copyMakeBorder(image, 0, 0, tmp, 0, cv2.BORDER_CONSTANT, value=[0, 0, 0])
+            image = cv2.copyMakeBorder(image, 0, 0, 0, tmp, cv2.BORDER_CONSTANT, value=[value, value, value])
+            image = cv2.copyMakeBorder(image, 0, 0, tmp, 0, cv2.BORDER_CONSTANT, value=[value, value, value])
 
         return image
 
@@ -362,34 +381,51 @@ def data_augmentation(img, img_size, label_id, pic_path):
 
     choice_list = [0, 1]
 
-    choice = random.sample(choice_list, 1)[0]
-    if choice == 0:
-        img = cut_random(img)
+    if globalvar.globalvar.config.model_set["cutRatio"]:
+        img = cut_random(img, ratio=globalvar.globalvar.config.model_set["cutRatio"])
+
+    # # 随机旋转
+    # if random.randint(0, 1):
+    #     # angle = random.randint(-90, 90)
+    #     angle = random.randint(-5, 5)
+    #     img = imRotate(img, angle, border_value=128, adaption=False)
+    #     # cv2.imwrite(
+    #     #     f"/home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/zjhs/sjht-zjhs-53/tmp/111/{time.time()}.jpg",
+    #     #     img)
 
     if globalvar.globalvar.config.model_set["fill_box2square"]:
-        img = fill(img)
+        img = fill(img, value=128)
+        # cv2.imwrite(
+        #     f"/home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syht1/sjht-syht1-280-281/tmp/111/{time.time()}.jpg",
+        #     img)
 
     img = cv2.resize(img, tuple(img_size))
 
-    choice = random.sample(choice_list, 1)[0]
-    if choice == 0:
-        img = flip_rl(img)
-
-    choice = random.sample(choice_list, 1)[0]
-    if choice == 0:
-        img = flip_ud(img)
+    # # 翻转
+    # choice = random.sample(choice_list, 1)[0]
+    # if choice == 0:
+    #     img = flip_rl(img)
+    #
+    # choice = random.sample(choice_list, 1)[0]
+    # if choice == 0:
+    #     img = flip_ud(img)
 
     choice = random.sample(choice_list, 1)[0]
     if choice == 0:
         img = img_addcontrast_brightness(img)
 
-    choice = random.sample(choice_list, 1)[0]
-    if choice == 0:
-        img = rotation_random(img)
-
-    choice = random.sample(choice_list, 1)[0]
-    if choice == 0:
-        img = radom_rotation(img)
+    # # 随机旋转90 180
+    # choice = random.sample(choice_list, 1)[0]
+    # if choice == 0:
+    #     img = rotation_random(img)
+    #
+    # # 在 -45 到 45 之间旋转
+    # choice = random.sample(choice_list, 1)[0]
+    # if choice == 0:
+    #     img = radom_rotation(img)
+    #     # angle = random.randint(-90, 90)
+    #     # img = imRotate(img, angle, border_value=128, adaption=True)
+    #     # cv2.imwrite(f"/home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syht1/sjht-syht1-280-281/tmp/111/{time.time()}.jpg", img)
 
     choice = random.sample(choice_list, 1)[0]
     if choice == 0:
@@ -410,7 +446,7 @@ def data_augmentation(img, img_size, label_id, pic_path):
 
         ])
     choice = random.sample(choice_list, 1)[0]
-    # choice = 1
+    choice = 1
     if choice == 0:
         data_transformed = transform(image=img)
         img = data_transformed["image"]
@@ -430,7 +466,10 @@ def parse_data(line, class_num, img_size, mode):
     except:
         globalvar.globalvar.logger.info_ai(meg="read img failed:%s" % pic_path)
     if mode.decode() == 'train':
-        img = data_augmentation(img, img_size, int(y), pic_path)
+        try:
+            img = data_augmentation(img, img_size, int(y), pic_path)
+        except Exception as e:
+            print(pic_path)
     else:
         img = data_augmentation(img, img_size, int(y), pic_path)
 
@@ -441,7 +480,6 @@ def parse_data(line, class_num, img_size, mode):
     img = np.asarray(img, np.float32)
     img = img / 255.
     y_true = np.asarray(y_true, np.float32)
-
     return img, y_true, np.asarray(int(y), np.int32)
 
 
@@ -540,71 +578,169 @@ def get_test_data(data_path, classes_list, name2id):
 
     return lines_temps
 
+def model_init_classify(num_class_classify, model_path_classify):
+    classify_size = globalvar.globalvar.config.model_set["classify_size"]
+    gpu_options_classify = tf.GPUOptions(per_process_gpu_memory_fraction=0.50)
+    graph_classify = tf.Graph()
+    with graph_classify.as_default():
+        input_data_classify = tf.placeholder(tf.float32, [1, classify_size[1], classify_size[0], 3], name='input_data')
+        input_data_classify_fp32 = tf.cast(input_data_classify, tf.float32) / 255.
+        yolo_model_classfy = yolov3_classfy(num_class_classify)
+        with tf.variable_scope('yolov3_classfication'):
+            logits, center_feature = yolo_model_classfy.forward(input_data_classify_fp32, is_training=False)
+        logits = tf.squeeze(logits)
+        scores = tf.nn.softmax(logits)
+        labels_classify = tf.squeeze(tf.argmax(scores, axis=0))
+        score_classify = tf.gather(scores, labels_classify)
+        saver_classify = tf.train.Saver(
+            var_list=tf.contrib.framework.get_variables_to_restore(include=["yolov3_classfication"]))
+    sess_classify = tf.Session(graph=graph_classify, config=tf.ConfigProto(gpu_options=gpu_options_classify, allow_soft_placement=True))
+    saver_classify.restore(sess_classify, model_path_classify)
+
+    return sess_classify, input_data_classify, score_classify, labels_classify
+
+
 def test_data_from_dir(test_dir, test_model, save_result_path, classes_list, name2id, gpu_device):
     config = tf.ConfigProto()
     config.gpu_options.allow_growth = True
 
-    with tf.Session(config=config) as sess:
-        with tf.device(gpu_device[0]):
-            input_data = tf.placeholder(tf.float32, [1, 192, 192, 3], name='input_data')
-            yolo_model_classfy = darknet_plus(len(classes_list))
-            with tf.variable_scope('yolov3_classfication'):
-                logits, center_feature = yolo_model_classfy.forward(input_data, is_training=False)
-        saver = tf.train.Saver(var_list=tf.contrib.framework.get_variables_to_restore(include=["yolov3_classfication"]))
-        class_result = tf.identity(logits, name='class_result')
-        saver.restore(sess, test_model)
-        globalvar.globalvar.logger.info_ai("load classify model from:%s"%test_model)
+    # with tf.Session(config=config) as sess:
+        # with tf.device(gpu_device[0]):
+        #     input_data = tf.placeholder(tf.float32, [1, 192, 192, 3], name='input_data')
+        #     yolo_model_classfy = darknet_plus(len(classes_list))
+        #     with tf.variable_scope('yolov3_classfication'):
+        #         logits, center_feature = yolo_model_classfy.forward(input_data, is_training=False)
+        # saver = tf.train.Saver(var_list=tf.contrib.framework.get_variables_to_restore(include=["yolov3_classfication"]))
+        # class_result = tf.identity(logits, name='class_result')
+        # saver.restore(sess, test_model)
+    sess_classify, input_data_classify, score_classify, labels_classify = model_init_classify(len(classes_list), test_model)
 
-        lines_temps = get_test_data(test_dir, classes_list, name2id)
-        data_result = [[] for _ in classes_list]
-        for index, test_data in enumerate(lines_temps):
-            test_num = len(test_data)
-            test_id = 0
-            for line in test_data:
-                if test_id % 50 == 0:
-                    globalvar.globalvar.logger.info_ai("start test class:%s, num:%d, %d/%d"%(classes_list[index], test_num, test_id, test_num))
-                test_id = test_id + 1
-                pic_path, class_id = line.split(" ")[0], line.split(" ")[1]
-                img = cv2.imread(pic_path)
+    globalvar.globalvar.logger.info_ai("load classify model from:%s"%test_model)
 
-                if globalvar.globalvar.config.model_set["fill_box2square"]:
-                    img = fill(img)
-                img = cv2.resize(img, (192, 192))
-                img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    lines_temps = get_test_data(test_dir, classes_list, name2id)
+    data_result = [[] for _ in classes_list]
+    for index, test_data in enumerate(lines_temps):
+        test_num = len(test_data)
+        test_id = 0
+        for line in test_data:
+            if test_id % 50 == 0:
+                globalvar.globalvar.logger.info_ai("start test class:%s, num:%d, %d/%d"%(classes_list[index], test_num, test_id, test_num))
+            test_id = test_id + 1
+            # pic_path, class_id = line.split(" ")[0], line.split(" ")[1]
+            pic_path, class_gt = line.split(" ")[0], line.split(" ")[0].split("/")[-2]
+            img = cv2.imread(pic_path)
+            if globalvar.globalvar.config.model_set["fill_box2square"]:
+                img = fill(img)
+            img = cv2.resize(img, (192, 192))
+            img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
-                img = np.asarray(img, np.float32)
-                img = img[np.newaxis, :] / 255.
+            img = np.asarray(img, np.float32)
+            # img = img[np.newaxis, :] / 255.
+            img = img[np.newaxis, :]
 
-                labels_ = sess.run([class_result], {input_data:img})[0]
-                labels_max = np.argmax(labels_, axis=1)[0]
-                labels_ = np.reshape(labels_, (-1))
-                y = softmax(labels_)
-                score = y[labels_max]
-                result = [pic_path, classes_list[int(class_id)], classes_list[labels_max], score]
-                data_result[index].append(result)
-        right_data_score = []
-        wrong_data_score = []
-        np.save(save_result_path, np.array(data_result))
+            score, label = sess_classify.run([score_classify, labels_classify], {input_data_classify:img})
 
-        for index, data_result in enumerate(data_result):
-            globalvar.globalvar.logger.info_ai("start statistic class:%s"%classes_list[index])
-            right_data_score_temp = []
-            wrong_data_score_temp = []
-            for data in data_result:
-                if data[1] == data[2]:
-                    right_data_score.append(data[3])
-                    right_data_score_temp.append(data[3])
-                else:
-                    wrong_data_score.append(data[3])
-                    wrong_data_score_temp.append(data[3])
-            right_data_score_temp = np.array(right_data_score_temp)
-            wrong_data_score_temp = np.array(wrong_data_score_temp)
-            globalvar.globalvar.logger.info_ai("%s test result, all data num:%d, right data num:%d, wrong data num:%d" %
-                                               (classes_list[index], len(right_data_score_temp)+len(wrong_data_score_temp), len(right_data_score_temp), len(wrong_data_score_temp)))
-        right_data_score = np.array(right_data_score)
-        wrong_data_score = np.array(wrong_data_score)
-        globalvar.globalvar.logger.info_ai("all data, all data num:%d, right data num:%d, wrong data num:%d"%
-                                           (len(right_data_score)+len(wrong_data_score), len(right_data_score), len(wrong_data_score)))
+            # score_classify, label_classify = self.sess_classify.run([self.score_classify, self.labels_classify],
+            #                                            feed_dict={
+            #                                                self.input_data_classify: img_classify})
+
+            # labels_max = np.argmax(labels_, axis=1)[0]
+            # labels_ = np.reshape(labels_, (-1))
+            # y = softmax(labels_)
+            # score = y[labels_max]
+            # result = [pic_path, classes_list[int(class_id)], classes_list[labels_max], score]
+            result = [pic_path, class_gt, classes_list[label], score]
+            data_result[index].append(result)
+    right_data_score = []
+    wrong_data_score = []
+    np.save(save_result_path, np.array(data_result))
+
+    for index, data_result in enumerate(data_result):
+        globalvar.globalvar.logger.info_ai("start statistic class:%s"%classes_list[index])
+        right_data_score_temp = []
+        wrong_data_score_temp = []
+        for data in data_result:
+            if data[1] == data[2]:
+                right_data_score.append(data[3])
+                right_data_score_temp.append(data[3])
+            else:
+                wrong_data_score.append(data[3])
+                wrong_data_score_temp.append(data[3])
+        right_data_score_temp = np.array(right_data_score_temp)
+        wrong_data_score_temp = np.array(wrong_data_score_temp)
+        globalvar.globalvar.logger.info_ai("%s test result, all data num:%d, right data num:%d, wrong data num:%d" %
+                                           (classes_list[index], len(right_data_score_temp)+len(wrong_data_score_temp), len(right_data_score_temp), len(wrong_data_score_temp)))
+    right_data_score = np.array(right_data_score)
+    wrong_data_score = np.array(wrong_data_score)
+    globalvar.globalvar.logger.info_ai("all data, all data num:%d, right data num:%d, wrong data num:%d"%
+                                       (len(right_data_score)+len(wrong_data_score), len(right_data_score), len(wrong_data_score)))
+
+
+# def test_data_from_dir(test_dir, test_model, save_result_path, classes_list, name2id, gpu_device):
+#     config = tf.ConfigProto()
+#     config.gpu_options.allow_growth = True
+#
+#     with tf.Session(config=config) as sess:
+#         with tf.device(gpu_device[0]):
+#             input_data = tf.placeholder(tf.float32, [1, 192, 192, 3], name='input_data')
+#             yolo_model_classfy = darknet_plus(len(classes_list))
+#             with tf.variable_scope('yolov3_classfication'):
+#                 logits, center_feature = yolo_model_classfy.forward(input_data, is_training=False)
+#         saver = tf.train.Saver(var_list=tf.contrib.framework.get_variables_to_restore(include=["yolov3_classfication"]))
+#         class_result = tf.identity(logits, name='class_result')
+#         saver.restore(sess, test_model)
+#         globalvar.globalvar.logger.info_ai("load classify model from:%s"%test_model)
+#
+#         lines_temps = get_test_data(test_dir, classes_list, name2id)
+#         data_result = [[] for _ in classes_list]
+#         for index, test_data in enumerate(lines_temps):
+#             test_num = len(test_data)
+#             test_id = 0
+#             for line in test_data:
+#                 if test_id % 50 == 0:
+#                     globalvar.globalvar.logger.info_ai("start test class:%s, num:%d, %d/%d"%(classes_list[index], test_num, test_id, test_num))
+#                 test_id = test_id + 1
+#                 pic_path, class_id = line.split(" ")[0], line.split(" ")[1]
+#                 img = cv2.imread(pic_path)
+#
+#                 if globalvar.globalvar.config.model_set["fill_box2square"]:
+#                     img = fill(img)
+#                 img = cv2.resize(img, (192, 192))
+#                 img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+#
+#                 img = np.asarray(img, np.float32)
+#                 img = img[np.newaxis, :] / 255.
+#
+#                 labels_ = sess.run([class_result], {input_data:img})[0]
+#                 labels_max = np.argmax(labels_, axis=1)[0]
+#                 labels_ = np.reshape(labels_, (-1))
+#                 y = softmax(labels_)
+#                 score = y[labels_max]
+#                 result = [pic_path, classes_list[int(class_id)], classes_list[labels_max], score]
+#                 data_result[index].append(result)
+#         right_data_score = []
+#         wrong_data_score = []
+#         np.save(save_result_path, np.array(data_result))
+#
+#         for index, data_result in enumerate(data_result):
+#             globalvar.globalvar.logger.info_ai("start statistic class:%s"%classes_list[index])
+#             right_data_score_temp = []
+#             wrong_data_score_temp = []
+#             for data in data_result:
+#                 if data[1] == data[2]:
+#                     right_data_score.append(data[3])
+#                     right_data_score_temp.append(data[3])
+#                 else:
+#                     wrong_data_score.append(data[3])
+#                     wrong_data_score_temp.append(data[3])
+#             right_data_score_temp = np.array(right_data_score_temp)
+#             wrong_data_score_temp = np.array(wrong_data_score_temp)
+#             globalvar.globalvar.logger.info_ai("%s test result, all data num:%d, right data num:%d, wrong data num:%d" %
+#                                                (classes_list[index], len(right_data_score_temp)+len(wrong_data_score_temp), len(right_data_score_temp), len(wrong_data_score_temp)))
+#         right_data_score = np.array(right_data_score)
+#         wrong_data_score = np.array(wrong_data_score)
+#         globalvar.globalvar.logger.info_ai("all data, all data num:%d, right data num:%d, wrong data num:%d"%
+#                                            (len(right_data_score)+len(wrong_data_score), len(right_data_score), len(wrong_data_score)))
 
 def get_wrong_data(save_result_path, wrong_data_save_path, classes_list, score=0.5, do_save=False):
     data_result = np.load(save_result_path, allow_pickle=True)

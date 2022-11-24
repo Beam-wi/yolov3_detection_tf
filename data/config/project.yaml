@@ -1,0 +1,343 @@
+project_name: "syanght_plastic_v1.5"
+data_set:
+    # 训练相关数据路径 'None' or abs path.
+    train_batch_path: None
+#    train_batch_path: /home/biwi/data/workdirs/sjht/yolov3_tf/whht/sjht-whht-173-175/1.4/20210326_whht_data_batch.txt.txt
+    # nfs挂载路径，拉取数据时需要，训练检测模型必须设置，为了提高读取图片速度，训练第一轮会把数据保存到本地（data_save_path_temp），保存地址即把图片文件路径中得nfs挂载路径（nfs_mount_path）替换为本地存储路径（data_save_path_temp）
+#    nfs_mount_path: /home/biwi/data
+    nfs_mount_path: /home/biwi/data/images4code
+#    nfs_mount_path: /mnt/data/binovo/data/images4code
+    # 本地数据缓存路径，训练检测模型必须设置
+    data_save_path_temp: /home/biwi/data/images/ai_model_ckpt/manu_train/sjht/ytht/sjht-ytht-73/tmp
+#    data_save_path_temp: /home/biwi/data/images/ai_model_ckpt/manu_train/sjht/syht2/sjht-syht2-449/tmp
+#    data_save_path_temp: /home/biwi/data/images/ai_model_ckpt/manu_train/sjht/syht2/sjht-syht2-24/tmp
+#    data_save_path_temp: /home/biwi/data/images/ai_model_ckpt/manu_train/sjht/syanght/sjht-syanght-345/tmp
+#    data_save_path_temp: /home/biwi/data/images/ai_model_ckpt/manu_train/sjht/syht2/sjht-sy2-23-24/tmp
+#    data_save_path_temp: /home/biwi/data/images/ai_model_ckpt/manu_train/sjht/syht1/sjht-syht1-42-43/tmp
+#    data_save_path_temp: /home/biwi/data/images/ai_model_ckpt/manu_train/azj/zjgnb/azj-zjgnb-423/tmp
+#    data_save_path_temp: /home/biwi/data/images/ai_model_ckpt/manu_train/azj/njqx/azj-niqx-390-393-396/tmp
+#    data_save_path_temp: /home/biwi/data/images/ai_model_ckpt/manu_train/sjht/syht2/sjht-sy2-23-24/tmp
+#    data_save_path_temp: /home/biwi/data/images/ai_model_ckpt/manu_train/azj/zjgnb/azj-zjgnb-388/tmp
+#    data_save_path_temp: /home/biwi/data/images/ai_model_ckpt/manu_train/sjht/inserts/sjht-all/tmp
+#    data_save_path_temp: /home/biwi/data/images/ai_model_ckpt/manu_train/sjht/inserts/sjht-syht-74-162-173/tmp
+#    data_save_path_temp: /home/biwi/data/images/ai_model_ckpt/manu_train/sjht/syangmh/sjht-syangmh-371/tmp
+#    data_save_path_temp: /home/biwi/data/images/ai_model_ckpt/manu_train/sjht/nbhx/sjht-nbhx-349/tmp
+#    data_save_path_temp: /home/biwi/data/images/ai_model_ckpt/manu_train/sjht/nbhx/sjht-nbhx-350-355-364-368/tmp
+#    data_save_path_temp: /home/biwi/data/images/ai_model_ckpt/manu_train/sjht/nbhx/sjht-nbhx-357-358/tmp
+#    data_save_path_temp: /home/biwi/data/images/ai_model_ckpt/manu_train/sjht/nbhx/sjht-nbhx-347-349/tmp
+#    data_save_path_temp: /home/biwi/data/images/ai_model_ckpt/manu_train/sjht/nbhz/sjht-nbhz-356/tmp
+#    data_save_path_temp: /home/biwi/data/images/ai_model_ckpt/manu_train/sjht/syanght/sjht-syanght-346/tmp
+#    data_save_path_temp: /home/biwi/data/images/ai_model_ckpt/manu_train/sjht/syanght/sjht-syanght-345/tmp
+#    data_save_path_temp: /home/biwi/data/images/ai_model_ckpt/manu_train/sjht/bshw/sjht-bshw-171-172/tmp
+#    data_save_path_temp: /home/biwi/data/images/ai_model_ckpt/manu_train/sjht/nbst/sjht-nbst-294-344/tmp
+#    data_save_path_temp: /home/biwi/data/images/ai_model_ckpt/manu_train/sjht/nbjs/sjht-nbjs-336/tmp
+#    data_save_path_temp: /home/biwi/data/images/ai_model_ckpt/manu_train/sjht/rdyf/sjht-rdyf-342-343/tmp
+#    data_save_path_temp: /home/biwi/data/images/ai_model_ckpt/manu_train/sjht/syanght/sjht-syanght-333-335/tmp
+#    data_save_path_temp: /home/biwi/data/images/ai_model_ckpt/manu_train/sjht/syht2/sjht-syht2-331-332/tmp
+#    data_save_path_temp: /home/biwi/data/images/ai_model_ckpt/manu_train/sjht/shtl/sjht-shtl-319/tmp
+#    data_save_path_temp: /home/biwi/data/images/ai_model_ckpt/manu_train/sjht/nblls/sjht-nblls-330/tmp
+#    data_save_path_temp: /home/biwi/data/images/ai_model_ckpt/manu_train/sjht/shtl/sjht-shtl-318/tmp
+#    data_save_path_temp: /home/biwi/data/images/ai_model_ckpt/manu_train/sjht/shtl/sjht-shtl-317/tmp
+#    data_save_path_temp: /home/biwi/data/images/ai_model_ckpt/manu_train/sjht/shtl/sjht-shtl-317/tmp
+#    data_save_path_temp: /home/biwi/data/images/ai_model_ckpt/manu_train/sjht/zjhs/sjht-zjhs-60-80-309-313-314/tmp
+#    data_save_path_temp: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/zjhs/sjht-zjhs-60-80-309-313-314/tmp
+    # 训练集信息存放文件路径，训练检测模型、分类模型、测试三个过程中都必须设置，如果设置了train_batch_path，该文件会被更新，在训练过程中也会被打乱顺序
+    detection_train_file_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/ytht/sjht-ytht-73/1.0/datasetid4392target_train.txt
+#    detection_train_file_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syht2/sjht-syht2-449/1.0/A/datasetid3954target_train.txt
+#    detection_train_file_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syht2/sjht-syht2-24/1.0/A/datasetid3721target_train.txt
+#    detection_train_file_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syanght/sjht-syanght-345/1.0/datasetid3732target_train.txt
+#    detection_train_file_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syanght/sjht-syanght-345/1.0/datasetid3718target_train.txt
+#    detection_train_file_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syht2/sjht-sy2-23-24/1.4/dataset_id_3606_target_train.txt
+#    detection_train_file_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syht1/sjht-syht1-42-43/1.0/dataset_id_3606_target_train.txt
+#    detection_train_file_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syht1/sjht-syht1-42-43/1.0/dataset_id_3558_target_train.txt
+#    detection_train_file_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syht1/sjht-syht1-42-43/1.0/dataset_id_3550_target_train.txt
+#    detection_train_file_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/azj/zjgnb/azj-zjgnb-423/1.0/202208191418_train.txt
+#    detection_train_file_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/azj/njqx/azj-niqx-390-393-396/1.0/202207251802_train.txt
+#    detection_train_file_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syht2/sjht-sy2-23-24/1.4/202207051221_train.txt
+#    detection_train_file_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/azj/zjgnb/azj-zjgnb-388/1.0/202207051221_train.txt
+#    detection_train_file_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/inserts/sjht-all/1.0/202205271013_train.txt
+#    detection_train_file_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/inserts/sjht-syht-74-162-173/1.0/202205201656_train.txt
+    # 测试集信息存放文件路径，，训练检测模型、分类模型、测试三个过程中都必须设置，如果设置了train_batch_path，该文件会被更新
+    detection_val_file_path:
+    - /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/ytht/sjht-ytht-73/1.0/datasetid4488target_val.txt
+#    - /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/ytht/sjht-ytht-73/1.0/datasetid4392target_val.txt
+#    - /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syht2/sjht-syht2-449/1.0/A/datasetid3955target_val.txt
+#    - /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syht2/sjht-syht2-449/1.0/A/datasetid3954target_val.txt
+#    - /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syht2/sjht-syht2-24/1.0/A/datasetid3730target_val.txt
+#    - /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syht2/sjht-syht2-24/1.0/A/datasetid3721target_val.txt
+#    - /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syanght/sjht-syanght-345/1.0/datasetid3732target_val.txt
+#    - /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syanght/sjht-syanght-345/1.0/20220926175932-38_val.txt
+#    - /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syanght/sjht-syanght-345/1.0/datasetid3731target_val.txt
+#    - /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syanght/sjht-syanght-345/1.0/datasetid3718target_val.txt
+#    - /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syht2/sjht-sy2-23-24/1.4/val_data.txt
+#    - /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syht2/sjht-sy2-23-24/1.4/2222222222222_val.txt
+#    - /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syht2/sjht-sy2-23-24/1.4/20220926093828-51_val.txt
+#    - /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syht1/sjht-syht1-42-43/1.0/datasetid42_target_val.txt
+#    - /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syht1/sjht-syht1-42-43/1.0/datasetid43_target_val.txt
+#    - /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syht1/sjht-syht1-42-43/1.0/dataset_id_3590_target_val.txt
+#    - /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syht1/sjht-syht1-42-43/1.0/dataset_id_3558_target_val.txt
+#    - /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syht1/sjht-syht1-42-43/1.0/datasetid3597_target_val.txt
+#    - /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syht1/sjht-syht1-42-43/1.0/datasetid3551_target_val.txt
+#    - /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syht1/sjht-syht1-42-43/1.0/dataset_id_3550_target_val.txt
+#    - /home/biwi/data/images4code/ai_model_ckpt/manu_train/azj/zjgnb/azj-zjgnb-423/1.0/202208191418_val.txt
+#    - /home/biwi/data/images4code/ai_model_ckpt/manu_train/azj/njqx/azj-niqx-390-393-396/1.0/202207251802_val.txt
+#    - /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syht2/sjht-sy2-23-24/1.4/val_data.txt
+#    - /home/biwi/data/images4code/ai_model_ckpt/manu_train/azj/zjgnb/azj-zjgnb-388/1.0/202207051221_val_or.txt
+#    - /home/biwi/data/images4code/ai_model_ckpt/manu_train/azj/zjgnb/azj-zjgnb-388/1.0/202207051221_val.txt
+    # anchor，训练检测模型、测试过程中都必须设置，实际应用过程中会在该数据基础上乘2.5倍
+#    anchors: [13,13, 19,19, 23,23, 29,29, 36,36, 43,43, 50,50, 60,60, 70,70]
+    anchors: [15,30, 19,19, 30,15, 25,50, 36,36, 50,25, 43,86, 60,60, 86,43]
+    # 宁波华翔 347-349 B面
+#    anchors: [15,30, 19,19, 30,15, 25,50, 36,36, 50,25, 86,172, 120,120, 172,86]
+    # 宁波华翔 357-358 A面
+#    anchors: [15,30, 19,19, 30,15, 125,250, 180,180, 250,125, 258,516, 360,360, 516,258]
+    # 上海通领 317
+#    anchors: [15,30, 19,19, 30,15, 25,50, 36,36, 50,25, 258,516, 360,360, 516,258]
+#    anchors: [23,72, 45,45, 72,23, 46,118, 81,81, 118,46, 85,203, 131,131, 203,85]
+    # 南京全新工件检测
+#    anchors: [23,72, 45,45, 72,23, 64,468, 174,174, 468,64, 138,317, 210,210, 317,138]
+    # 分类模型嵌件类别信息，训练检测模型、分类模型、测试三个过程中必须设置，设置原则是该模型需要进行检测得嵌件都需要包含在该文件内,只填写要求检测得类别
+    class_name_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/ytht/sjht-ytht-73/1.0/label_class_names.txt
+#    class_name_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syht2/sjht-syht2-449/1.0/A/label_class_names.txt
+#    class_name_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syht2/sjht-syht2-449/1.0/A/label_class_names_det.txt
+#    class_name_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syht2/sjht-syht2-24/1.0/A/label_class_names.txt
+#    class_name_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syht2/sjht-syht2-24/1.0/A/label_class_names_det.txt
+#    class_name_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syanght/sjht-syanght-345/1.0/label_class_names.txt
+#    class_name_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syanght/sjht-syanght-345/1.0/label_class_names_det.txt
+#    class_name_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syht2/sjht-sy2-23-24/1.4/label_class_names.txt
+#    class_name_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syht1/sjht-syht1-42-43/1.0/label_class_names_det.txt
+#    class_name_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syht1/sjht-syht1-42-43/1.0/label_class_names.txt
+#    class_name_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/azj/zjgnb/azj-zjgnb-423/1.0/label_class_names.txt
+#    class_name_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/azj/njqx/azj-niqx-390-393-396/1.0/label_class_names.txt
+#    class_name_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syht2/sjht-sy2-23-24/1.4/class_names.txt
+#    class_name_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/azj/zjgnb/azj-zjgnb-388/1.0/label_class_names.txt
+#    class_name_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/inserts/sjht-all/1.0/label_class_names.txt
+#    class_name_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/inserts/sjht-all/1.0/label_class_names_qj.txt
+#    class_name_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/inserts/sjht-syht-74-162-173/1.0/label_class_names.txt
+#    class_name_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/nbhx/sjht-nbhx-347-349/2.0/label_class_names.txt
+    # 模型及临时文件、测试结果储路径，检测模型训练、测试必须设置，用于存放检测模型，测试时也会从该路径加载检测模型
+    model_and_temp_file_save_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/ytht/sjht-ytht-73/1.0/model_and_temp_file
+#    model_and_temp_file_save_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syht2/sjht-syht2-449/1.0/A/model_and_temp_file
+#    model_and_temp_file_save_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syht2/sjht-syht2-24/1.0/A/model_and_temp_file
+#    model_and_temp_file_save_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syanght/sjht-syanght-345/1.0/model_and_temp_file
+#    model_and_temp_file_save_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syht2/sjht-sy2-23-24/1.4/model_and_temp_file
+#    model_and_temp_file_save_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/azj/njqx/azj-niqx-390-393-396/1.0/model_and_temp_file
+#    model_and_temp_file_save_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syht2/sjht-sy2-23-24/1.4/model_and_temp_file
+#    model_and_temp_file_save_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/azj/zjgnb/azj-zjgnb-388/1.0/model_and_temp_file
+#    model_and_temp_file_save_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/inserts/sjht-all/1.0/model_and_temp_file
+#    model_and_temp_file_save_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/inserts/sjht-syht-74-162-173/1.0/model_and_temp_file
+#    model_and_temp_file_save_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/nbhx/sjht-nbhx-349/1.0/model_and_temp_file
+#    model_and_temp_file_save_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/nbhx/sjht-nbhx-347-349/2.0/model_and_temp_file
+#    model_and_temp_file_save_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/inserts/sjht-syht-74-162-173/1.0/model_and_temp_file
+#    model_and_temp_file_save_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syangmh/sjht-syangmh-371/1.0/model_and_temp_file
+#    model_and_temp_file_save_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/nbhx/sjht-nbhx-350-355-364-368/1.0/model_and_temp_file
+#    model_and_temp_file_save_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/nbhx/sjht-nbhx-357-358/1.0/model_and_temp_file
+#    model_and_temp_file_save_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/nbhx/sjht-nbhx-347-349/1.0/model_and_temp_file
+#    model_and_temp_file_save_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/nbhz/sjht-nbhz-356/1.0/model_and_temp_file
+#    model_and_temp_file_save_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syanght/sjht-syanght-346/1.0/model_and_temp_file
+#    model_and_temp_file_save_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syanght/sjht-syanght-345/1.0/model_and_temp_file
+#    model_and_temp_file_save_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/bshw/sjht-bshw-171-172/1.0/model_and_temp_file
+#    model_and_temp_file_save_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/nbst/sjht-nbst-294-344/1.0/model_and_temp_file
+#    model_and_temp_file_save_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/nbjs/sjht-nbjs-336/1.0/model_and_temp_file
+#    model_and_temp_file_save_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/rdyf/sjht-rdyf-342-343/1.0/model_and_temp_file
+#    model_and_temp_file_save_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syanght/sjht-syanght-333-335/1.0/model_and_temp_file
+#    model_and_temp_file_save_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/syht2/sjht-syht2-331-332/1.0/model_and_temp_file
+#    model_and_temp_file_save_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/shtl/sjht-shtl-319/1.0/model_and_temp_file
+#    model_and_temp_file_save_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/nblls/sjht-nblls-330/1.0/model_and_temp_file
+#    model_and_temp_file_save_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/shtl/sjht-shtl-318/1.0/model_and_temp_file
+#    model_and_temp_file_save_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/shtl/sjht-shtl-317/1.0/model_and_temp_file
+#    model_and_temp_file_save_path: /home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/zjhs/sjht-zjhs-60-80-309-313-314/1.0/model_and_temp_file
+    clsDirName: data_classify
+#    clsDirName: data_classify_120
+#    clsDirName: data_classify_130
+#    clsDirName: data_classify_180
+#    clsDirName: data_classify_180_7c
+#    clsDirName: data_classify_300
+#    clsDirName: data_classify_180_all
+    #是否在训练分类模型时裁剪嵌件，默认为True，如果设置为False，不会进行裁剪，会直接用上一次裁剪得数据
+    need_cut_object: False
+model_set:
+    # 检测模型存储名称，非必须，有默认参数
+    detection_model_save_name: datasetid4392target_detection_model_default_name
+#    detection_model_save_name: datasetid3954target_detection_model_default_name
+#    detection_model_save_name: datasetid3721target_detection_model_default_name
+#    detection_model_save_name: datasetid3732target_detection_model_default_name
+#    detection_model_save_name: datasetid3718target_detection_model_default_name
+#    detection_model_save_name: detection_model_default_name
+#    detection_model_save_name: dataset_id_3606_detection_model_default_name
+#    detection_model_save_name: dataset_id_3590_detection_model_default_name
+#    detection_model_save_name: dataset_id_3558_detection_model_default_name
+#    detection_model_save_name: dataset_id_3550_detection_model_default_name
+#    detection_model_save_name: 202208191418_detection_model_default_name
+#    detection_model_save_name: 202207251802_detection_model_default_name
+#    detection_model_save_name: detection_model_default_name
+#    detection_model_save_name: 202207051221_detection_model_default_name
+#    detection_model_save_name: 202206291353_detection_model_default_name
+#    detection_model_save_name: 202206252121_detection_model_default_name
+#    detection_model_save_name: 202206201737_detection_model_default_name
+#    detection_model_save_name: 202203021603_detection_model_default_name
+#    detection_model_save_name: 202205271013_detection_model_default_name
+#    detection_model_save_name: 202205201656_detection_model_default_name
+#    detection_model_save_name: 202205172300_detection_model_default_name
+#    detection_model_save_name: 202205171656_detection_model_default_name
+#    detection_model_save_name: 202205142125_detection_model_default_name
+#    detection_model_save_name: 202205121456_detection_model_default_name
+#    detection_model_save_name: 202205121123_detection_model_default_name
+#    detection_model_save_name: 202205111622_detection_model_default_name
+#    detection_model_save_name: 202205101712_detection_model_default_name
+#    detection_model_save_name: 202205071846_detection_model_default_name
+#    detection_model_save_name: 202205071845_detection_model_default_name
+#    detection_model_save_name: 202204171400_detection_model_default_name
+#    detection_model_save_name: 202204131633_detection_model_default_name
+#    detection_model_save_name: 202204131632_detection_model_default_name
+#    detection_model_save_name: 202204112236_detection_model_default_name
+#    detection_model_save_name: 202203211360_detection_model_default_name
+#    detection_model_save_name: 202203211359_detection_model_default_name
+#    detection_model_save_name: 202203211358_detection_model_default_name
+#    detection_model_save_name: 202203112049_detection_model_default_name
+#    detection_model_save_name: 202203042119_detection_model_default_name
+#    detection_model_save_name: 202203042117_detection_model_default_name
+#    detection_model_save_name: 202203041343_detection_model_default_name
+#    detection_model_save_name: 202203021603_detection_model_default_name
+    # gpu设置，训练检测模型可以是多gpu（"0,1", "1,2,3", ....），也可以是单gpu("0", "1", "2", .....)
+#    detection_train_gpu_device: "0,1,2,3"
+#    detection_train_gpu_device: "0"
+#    detection_train_gpu_device: "1"
+    detection_train_gpu_device: "0,1"
+#    detection_train_gpu_device: "1,2"
+#    detection_train_gpu_device: "2,3"
+#    detection_train_gpu_device: "0,3"
+#    detection_train_gpu_device: "3"
+    # gpu设置，分类和测试中如果设置多个，会选择第一个使用
+#    other_gpu_device: "0"
+#    other_gpu_device: "0,1"
+#    other_gpu_device: "1"
+    other_gpu_device: "2"
+#    other_gpu_device: "1,2"
+#    other_gpu_device: "0,1,2,3"
+#    other_gpu_device: "2,3"
+#    other_gpu_device: "0,1,2,3"
+    # 检测模型训练轮数，非必须，默认为100
+    detection_total_epoches: 100
+    # 检测模型训练多少步保存一次模型epoch，可为小数
+    detection_save_freq: 2
+    # 分类模型存储名称。非必须，有默认参数
+    classify_model_save_name: datasetid4392target_classify_model_default_name
+#    classify_model_save_name: datasetid3954target_classify_model_default_name
+#    classify_model_save_name: datasetid3721target_classify_model_default_name
+#    classify_model_save_name: datasetid3732target_classify_model_default_name
+#    classify_model_save_name: datasetid3718target_classify_model_default_name
+#    classify_model_save_name: classify_model_default_name
+#    classify_model_save_name: dataset_id_3550_3_classify_model_default_name
+#    classify_model_save_name: dataset_id_3550_2_classify_model_default_name
+#    classify_model_save_name: dataset_id_3550_classify_model_default_name
+#    classify_model_save_name: 202208191418_classify_model_default_name
+#    classify_model_save_name: 202207251802_classify_model_default_name
+#    classify_model_save_name: classify_model_default_name
+#    classify_model_save_name: 202207051221_classify_model_default_name
+#    classify_model_save_name: 202206291354_classify_model_default_name
+#    classify_model_save_name: 202206291353_classify_model_default_name
+#    classify_model_save_name: 202206252126_classify_model_default_name-40
+#    classify_model_save_name: 202206252125_classify_model_default_name
+#    classify_model_save_name: 202206252124_classify_model_default_name
+#    classify_model_save_name: 202206252123_classify_model_default_name
+#    classify_model_save_name: 202206252122_classify_model_default_name
+#    classify_model_save_name: 202206252121_classify_model_default_name
+#    classify_model_save_name: 202206201737_classify_model_default_name
+#    classify_model_save_name: 202206181837_classify_model_default_name
+#    classify_model_save_name: 202205201656_classify_model_default_name
+#    classify_model_save_name: 202205190919_classify_model_default_name
+#    classify_model_save_name: 202205172301_classify_model_default_name
+#    classify_model_save_name: 202205172300_classify_model_default_name
+#    classify_model_save_name: 202205171656_classify_model_default_name
+#    classify_model_save_name: 202205142125_classify_model_default_name
+#    classify_model_save_name: 202205121456_classify_model_default_name
+#    classify_model_save_name: 202205121123_classify_model_default_name
+#    classify_model_save_name: 202205111622_classify_model_default_name
+#    classify_model_save_name: 202205101712_classify_model_default_name
+#    classify_model_save_name: 202205071846_classify_model_default_name
+#    classify_model_save_name: 202205071845_classify_model_default_name
+#    classify_model_save_name: 202204241181_classify_model_default_name
+#    classify_model_save_name: 202204241180_classify_model_default_name
+#    classify_model_save_name: 202204221300_classify_model_default_name
+#    classify_model_save_name: 202204221130_classify_model_default_name
+#    classify_model_save_name: 202204171403_classify_model_default_name
+#    classify_model_save_name: 202204171402_classify_model_default_name
+#    classify_model_save_name: 202204171401_classify_model_default_name
+#    classify_model_save_name: 202204171400_classify_model_default_name
+#    classify_model_save_name: 202204131633_classify_model_default_name
+#    classify_model_save_name: 202204131632_classify_model_default_name
+#    classify_model_save_name: 202204112236_classify_model_default_name
+#    classify_model_save_name: 202203211360_classify_model_default_name
+#    classify_model_save_name: 202203211359_classify_model_default_name
+    # 嵌件分类的时候扩充出去的尺寸,等同下面ext_ratio
+#    extension_ratio: 3.0 #嵌件分类的时候扩充出去的尺寸,裁3.0，测2.8
+#    extension_ratio: 2.0 #嵌件分类的时候扩充出去的尺寸,裁2.0，测1.8
+#    extension_ratio: 1.5 #嵌件分类的时候扩充出去的尺寸,裁1.8，测1.5
+#    extension_ratio: 1.3 #嵌件分类的时候扩充出去的尺寸,裁1.5,1.4，测1.3
+    extension_ratio: 1.2 #嵌件分类的时候扩充出去的尺寸,裁1.3，测1.2
+#    extension_ratio: 1.0 #嵌件分类的时候扩充出去的尺寸,裁1.2，测1.0
+#    extension_ratio: 1.8 # 用1.8倍扩充图，训练1.4倍，测试1.2倍，cutRatio用列表
+    # 分类训练随机裁剪比例，为0时不裁, 一般为(ext_ratio-0.95*test_ext_ratio)/ext_ratio
+#    cutRatio: 0.12
+#    cutRatio: 0.15
+#    cutRatio: 0.21
+#    cutRatio: 0.12
+    cutRatio: 0.11
+#    cutRatio: 0.20
+#    cutRatio: [0, 0.22]
+#    cutRatio: 0.22
+#    cutRatio: 0
+    # 是否把嵌件扩充到矩形再进行分类，训练分类和测试时使用，默认为True
+    fill_box2square: True
+    #训练分类总轮数
+    classify_total_epochs: 40
+    # 单独测试分类模型准确率时，会根据该得分阈值进行筛选，如果低于该值认为没有找到，非必须
+    classify_model_test_score: 0.
+#以下参数测试过程中使用，有默认值，非必须
+test_other_info_set:
+    # 目标检测nms阈值，当嵌件有相互嵌套情况建议设置为0.5，默认0.2，否者可能导致嵌件被过滤掉
+#    iou_thresh: 0.2
+    iou_thresh: 0.3
+#    iou_thresh: 0.4
+#    iou_thresh: 0.5
+#    iou_thresh: 0.9
+#    iou_thresh: 0.8
+#    iou_thresh: 0.9
+    # 同类别nms阈值为 int或list，int时所有一样，list每个类分别给出, 数目不对会报错
+    labels_nms_threshold: 0.5
+#    labels_nms_threshold: [0.1, 0.1, 0.1, 0.1, 0.1, 0.3, 0.1, 0.1, 0.1]
+#    labels_nms_threshold: [0.5, 0.5, 0.1, 0.5, 0.5, 0.5, 0.5, 0.1, 0.1, 0.1, 0.1, 0.1]
+#    labels_nms_threshold: [0.1, 0.1, 0.1, 0.1, 0.1, 0.4, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]
+#    labels_nms_threshold: [0.1, 0.1, 0.1, 0.1, 0.1, 0.5, 0.1, 0.1, 0.1]
+    #小于该尺寸的嵌件将被过滤掉
+    size_min: 1
+    # 是否进行分类，如果只有一个类别，不需要进行分类，需要设置为False
+    do_classify: True
+    # 是否把测试过程中分类错误和漏检的box存储下来，以便分析
+    writeWBox: False
+    # 是否只存测试错误的整图, 否则存所有图片
+    writeWFull: True
+    # 是否把测试错误的数据显示出来
+    show_wrong_data: False
+    #保障准确率要求条件下检测得分最低阈值
+    detection_threshold_for_show: [0.2]
+    #保障准确率要求条件下分类得分最低阈值
+    classify_threshold_for_show: [0.5]
+    # 测试时与gt的iou值，判断是否找到嵌件的iou阈值
+    test_iou_thresh: 0.2
+#    test_iou_thresh: 0.3
+#    test_iou_thresh: 0.4
+#    test_iou_thresh: 0.5
+#    test_iou_thresh: 0.6
+    # 综合测试通过召回率最低标准
+    recall_threshold: 0.96
+    # 综合测试通过精确率最低标准
+    precision_threshold: 0.97
+    # 测试结果阈值筛选保存文件名称，将会保存到test_result_save_path路径下，必须设置，建议按照工件号来设置，这样每个工件测试结果会保存为一个独立得参数文件
+    object_threshold_select_save_name: "default_gj.txt"
+    # 保障准确率要求条件下检测得分最低阈值
+    detection_threshold_min: 0.2
+    # 保障准确率要求条件下分类得分最低阈值
+    classify_threshold_min: 0.8
+

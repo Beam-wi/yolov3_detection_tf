@@ -1,17 +1,15 @@
 from __future__ import absolute_import
 from __future__ import division
-# gtype import
 from __future__ import print_function
 
-import ast
 import copy
 from typing import Any, Dict, Text
 import six
-import tensorflow.compat.v1 as tf
 import yaml
 import os
 
-#copy from  https://github.com/google/automl/tree/master/efficientdet
+
+# copy from  https://github.com/google/automl/tree/master/efficientdet
 class Config(object):
     """A config utility class."""
 
@@ -108,10 +106,13 @@ class Config(object):
 
         return config_content
 
+    def save(self, filePath):
+        eval(f"self.save_to_{filePath.split('.')[-1]}(filePath)")
+
     def save_to_yaml(self, yaml_file_path):
         """Write a dictionary into a yaml file."""
-        with tf.gfile.Open(yaml_file_path, 'w') as f:
-            yaml.dump(self.as_dict(), f, default_flow_style=False)
+        with open(yaml_file_path, 'w', encoding='utf-8') as f:
+            yaml.dump(self.as_dict(), f)
 
     def as_dict(self):
         """Returns a dict representation."""
@@ -122,6 +123,7 @@ class Config(object):
             else:
                 config_dict[k] = copy.deepcopy(v)
         return config_dict
+
 
 def get_config(config_path):
     assert os.path.exists(config_path), "config path is not exist:%s"%config_path

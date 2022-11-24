@@ -2,12 +2,15 @@ import cv2
 import random
 import copy
 import os
+import time
 import math
 import numpy as np
 import albumentations as A
 from utils.eval_utils import calc_iou
 from scipy.interpolate import UnivariateSpline
 import utils.globalvar as globalvar
+
+from utils.aug import imRotate
 
 
 def resize_image_and_correct_boxes(img, boxes, img_size):
@@ -619,7 +622,7 @@ def cut_random_and_rebuild(img, boxes, labels, img_size, cut_size = [2048, 2048]
             box[1] = max(0, box[1])
             box[2] = min(cut_size[1], box[2])
             box[3] = min(cut_size[0], box[3])
-            if box[2] < 0 or box[0] > cut_size[1] or box[3] > cut_size[0] or box[1] < 0 or (box[2]-box[0])<=5 or (box[3]-box[1])<=5:
+            if box[2] < 0 or box[0] > cut_size[1] or box[3] > cut_size[0] or box[1] < 0 or (box[2]-box[0])<=5 or (box[3]-box[1]) <= 5:
                 pass
             else:
                 boxes_temp.append(box)
@@ -648,20 +651,22 @@ def cut_random_with_size(image, boxes, labels, class_num_dic, cut_size=(640, 640
             return intersect / ((box[2] - box[0]) * (box[3] - box[1])) * 1.0, [left_line - w_left_cut, top_line - h_up_cut,
                                                                                right_line - w_left_cut, bottom_line - h_up_cut]
 
-    def cut_boxes(boxes, w_left_cut, h_up_cut, w_right_cut, h_down_cut):
+    def cut_boxes(boxes, labels_temp, w_left_cut, h_up_cut, w_right_cut, h_down_cut):
         boxes_cut = []
         keepout_boxes = []
+        labels_cut = list()
         for id in range(len(boxes)):
             box = boxes[id]
             iou, box_cut = box_iou(box, w_left_cut, h_up_cut, w_right_cut, h_down_cut)
             if len(box_cut) > 0:
                 if iou > cut_factor:
                     boxes_cut.append(box_cut)
+                    labels_cut.append(labels_temp[id])
                 elif 0 < iou <= cut_factor:
                     keepout_boxes.append(np.array(box_cut, np.int32))
                 else:
                     pass
-        return boxes_cut, keepout_boxes
+        return boxes_cut, keepout_boxes, labels_cut
 
     H, W, C = image.shape
     h_cut_bound, w_cut_bound = cut_size
@@ -672,7 +677,8 @@ def cut_random_with_size(image, boxes, labels, class_num_dic, cut_size=(640, 640
         w_left_cut = random.randint(0, W - w_cut_bound)
         w_right_cut = w_left_cut + w_cut_bound
         image = image[h_up_cut:h_down_cut, w_left_cut:w_right_cut, :]
-        return image, boxes
+        labels = []
+        return image, boxes, labels
 
     elif len(boxes) == 1 and labels[0] == "gj":
         x_center = int(random.randint(int(min(max(boxes[0][0], w_cut_bound / 2 + 1), (W - w_cut_bound / 2) - 1)),
@@ -685,14 +691,15 @@ def cut_random_with_size(image, boxes, labels, class_num_dic, cut_size=(640, 640
         w_right_cut = w_left_cut + w_cut_bound
         image = image[h_up_cut:h_down_cut, w_left_cut:w_right_cut, :]
         boxes = np.array([])
-        labels = np.array([])
-        return image, boxes
+        labels = []
+        return image, boxes, labels
     elif len(boxes) > 1 and "gj" in labels:
         gj_box = boxes[labels.index("gj")]
-        boxes_temp = []
+        boxes_temp, labels_temp = list(), list()
         for id in range(len(labels)):
             if labels[id] != "gj":
                 boxes_temp.append(boxes[id])
+                labels_temp.append(labels[id])
         boxes = np.array(boxes_temp)
 
         x_center = int(random.randint(int(min(max(gj_box[0], w_cut_bound / 2 + 1), (W - w_cut_bound / 2) - 1)),
@@ -704,59 +711,68 @@ def cut_random_with_size(image, boxes, labels, class_num_dic, cut_size=(640, 640
         w_left_cut = int(x_center - w_cut_bound / 2 + 1)
         w_right_cut = w_left_cut + w_cut_bound
 
-        boxes_temp, keepout_boxes = cut_boxes(boxes, w_left_cut, h_up_cut, w_right_cut, h_down_cut)
+        boxes_temp, keepout_boxes, labels_temp = cut_boxes(boxes, labels_temp, w_left_cut, h_up_cut, w_right_cut, h_down_cut)
         image = image[h_up_cut:h_down_cut, w_left_cut:w_right_cut, :]
         for keepout_box_id in range(len(keepout_boxes)):
             image[keepout_boxes[keepout_box_id][1]:keepout_boxes[keepout_box_id][3],
             keepout_boxes[keepout_box_id][0]:keepout_boxes[keepout_box_id][2], :] = 0
         boxes_temp = np.array(boxes_temp)
-        return image, boxes_temp
+        labels = [list(class_num_dic.keys()).index(l) for l in labels_temp]
+        return image, boxes_temp, labels
 
     else:
+        if not globalvar.globalvar.config.model_set["quit_label_cut"]:
+            classNumDic = copy.deepcopy(class_num_dic)
+            for key in list(classNumDic.keys()):
+                if key not in labels:
+                    classNumDic.pop(key)
 
-        for key in list(class_num_dic.keys()):
-            if key not in labels:
-                class_num_dic.pop(key)
+            # class_num_dic_ = {key:value/sum(class_num_dic.values()) for key, value in class_num_dic.items()}
+            class_num_dic_ = {}
+            deno = 0
+            for vv in classNumDic.values():
+                deno += vv
+            for k, v in classNumDic.items():
+                class_num_dic_[k] = v/deno
 
-        class_num_dic = {key:value/sum(class_num_dic.values()) for key, value in class_num_dic.items()}
-        class_rate_dic = {}
+            class_rate_dic = {}
+            sum_rate = 0
+            keys = list(class_num_dic_.keys())
+            for key in keys:
+                if keys.index(key) == len(keys) - 1:
+                    class_rate_dic[key] = [sum_rate, 1.]
+                else:
+                    class_rate_dic[key] = [sum_rate, sum_rate + class_num_dic_[key]]
 
-        sum_rate = 0
-        keys = list(class_num_dic.keys())
-        for key in keys:
-            if keys.index(key) == len(keys) - 1:
-                class_rate_dic[key] = [sum_rate, 1.]
+                sum_rate = sum_rate + class_num_dic_[key]
+
+            random_rate = random.random()
+            if len(keys) > 1:
+                select_name = random.choice(keys)  # 防止后面异常选不到数据
             else:
-                class_rate_dic[key] = [sum_rate, sum_rate + class_num_dic[key]]
+                select_name = keys[0]
+            for key in keys:
+                if class_rate_dic[key][0] <= random_rate <= class_rate_dic[key][1]:
+                    select_name = key
+                    break
+                else:
+                    pass
 
-            sum_rate = sum_rate + class_num_dic[key]
+            img_label_ids = list()
+            for id, name in enumerate(labels):
+                if name == select_name:
+                    img_label_ids.append(id)
 
-        random_rate = random.random()
-        if len(keys) > 1:
-            select_name = random.choice(keys) #防止后面异常选不到数据
+            box_select_id = random.choice(img_label_ids)
+            h_min = int(max(0, boxes[box_select_id][3] - h_cut_bound))
+            h_max = int(min(boxes[box_select_id][1], H - h_cut_bound))
+            w_min = int(max(0, boxes[box_select_id][2] - w_cut_bound))
+            w_max = int(min(boxes[box_select_id][0], W - w_cut_bound))
         else:
-            select_name = keys[0]
-        for key in keys:
-            if class_rate_dic[key][0] <= random_rate <= class_rate_dic[key][1]:
-                select_name = key
-                break
-            else:
-                pass
-
-        img_label_ids = []
-        id = 0
-        for name in labels:
-            if name == select_name:
-                img_label_ids.append(id)
-            id = id + 1
-
-        box_select_id = random.choice(img_label_ids)
-
-
-        h_min = int(max(0, boxes[box_select_id][3] - h_cut_bound))
-        h_max = int(min(boxes[box_select_id][1], H - h_cut_bound))
-        w_min = int(max(0, boxes[box_select_id][2] - w_cut_bound))
-        w_max = int(min(boxes[box_select_id][0], W - w_cut_bound))
+            h_min = 0
+            h_max = H - h_cut_bound
+            w_min = 0
+            w_max = W - w_cut_bound
 
         if h_min >= h_max:
             h_up_cut = h_min
@@ -768,12 +784,13 @@ def cut_random_with_size(image, boxes, labels, class_num_dic, cut_size=(640, 640
         else:
             w_left_cut = random.randint(w_min, w_max)
         w_right_cut = w_left_cut + w_cut_bound
-        boxes_temp, keepout_boxes = cut_boxes(boxes, w_left_cut, h_up_cut, w_right_cut, h_down_cut)
+        boxes_temp, keepout_boxes, labels = cut_boxes(boxes, labels, w_left_cut, h_up_cut, w_right_cut, h_down_cut)
         image = image[h_up_cut:h_down_cut, w_left_cut:w_right_cut, :]
         for keepout_box_id in range(len(keepout_boxes)):
             image[keepout_boxes[keepout_box_id][1]:keepout_boxes[keepout_box_id][3], keepout_boxes[keepout_box_id][0]:keepout_boxes[keepout_box_id][2], :] = 0
         boxes_temp = np.array(boxes_temp)
-        return image, boxes_temp
+        labels = [list(class_num_dic.keys()).index(l) for l in labels]
+        return image, boxes_temp, labels
 
 
 def cut_random_with_size_back(image, boxes, cut_size=(640, 640), cut_factor=0.5):
@@ -1066,6 +1083,35 @@ def random_rotation(img_path, img, boxes, labels, img_size, angle_value=10, angl
     return img, boxes, labels
 
 
+def randomRotation(img, boxes, labels, angle_value=10, angle_set=None):
+    h, w = img.shape[0], img.shape[1]
+    img_temp = copy.deepcopy(img)
+    if angle_set is not None:
+        angle = random.sample([-90, 90, -180, 180], 1)[0]
+    else:
+        angle = random.randint(-1*angle_value, angle_value)
+    center = (w // 2, h // 2)
+    M = cv2.getRotationMatrix2D(center, angle, 1.0)
+    img_change = cv2.warpAffine(img_temp, M, (w, h),  borderValue=(0, 0, 0))  # borderMode=cv2.INTER_LINEAR, borderValue=cv2.BORDER_REPLICATE
+    boxes_change = []
+    labels_change = []
+    # image = copy.deepcopy(img_change)
+    for i, bx in enumerate(boxes):
+        points = np.array([[bx[0], bx[1]], [bx[2], bx[1]], [bx[2], bx[3]], [bx[0], bx[3]]])
+        Points = np.concatenate((copy.deepcopy(points), np.ones((points.shape[0], 1))), axis=-1).T
+        points = np.int0(np.dot(M, Points).T)
+        # cv2.polylines(image, points[np.newaxis, :, :], isClosed=True, color=(255, 255, 0), thickness=3)
+        x_min, y_min, x_max, y_max = points[:, 0].min(), points[:, 1].min(), points[:, 0].max(), points[:, 1].max()
+        boxes_change.append([x_min, y_min, x_max, y_max])
+        labels_change.append(labels[i])
+    if len(boxes_change):
+        img = img_change
+        boxes = np.array(boxes_change)
+        labels = np.array(labels_change)
+
+    return img, boxes, labels
+
+
 def padding_random(img_path, img, boxes, labels, img_size, padding_rate=0.2):
     h, w, c = img.shape
     w_padding_size = int(random.uniform(0, int(w * padding_rate)))
@@ -1077,50 +1123,122 @@ def padding_random(img_path, img, boxes, labels, img_size, padding_rate=0.2):
     return img, boxes, labels
 
 
+def randomColorDistort(img, hue_vari=25, sat_vari=0.5, val_vari=0.5):
+    def random_hue(img_hsv, hue_vari, p=0.5):
+        if np.random.uniform(0, 1) > p:
+            hue_delta = np.random.randint(-hue_vari, hue_vari)
+            img_hsv[:, :, 0] = (img_hsv[:, :, 0] + hue_delta) % 180
+        return img_hsv
+
+    def random_saturation(img_hsv, sat_vari, p=0.5):
+        if np.random.uniform(0, 1) > p:
+            sat_mult = 1 + np.random.uniform(-sat_vari, sat_vari)
+            img_hsv[:, :, 1] *= sat_mult
+        return img_hsv
+
+    def random_value(img_hsv, val_vari, p=0.5):
+        if np.random.uniform(0, 1) > p:
+            val_mult = 1 + np.random.uniform(-val_vari, val_vari)
+            img_hsv[:, :, 2] *= val_mult
+        return img_hsv
+
+    # color jitter
+    img_hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV).astype(np.float32)
+
+    if np.random.randint(0, 1):
+        img_hsv = random_value(img_hsv, val_vari)
+        img_hsv = random_saturation(img_hsv, sat_vari)
+        img_hsv = random_hue(img_hsv, hue_vari)
+    else:
+        img_hsv = random_saturation(img_hsv, sat_vari)
+        img_hsv = random_hue(img_hsv, hue_vari)
+        img_hsv = random_value(img_hsv, val_vari)
+
+    img_hsv = np.clip(img_hsv, 0, 255)
+    img = cv2.cvtColor(img_hsv.astype(np.uint8), cv2.COLOR_HSV2BGR)
+
+    return img
+
+
+def imgAddBrightness(imgrgb):
+    '''
+    Randomly add bright
+    :param imgrgb: image wait for adding bright
+    :return: image added bright
+    '''
+    a = random.sample([i / 10 for i in range(4, 18)], 1)[0]
+    g = random.sample([i for i in range(0, 3)], 1)[0]
+    h, w, ch = imgrgb.shape
+    src2 = np.zeros([h, w, ch], imgrgb.dtype)
+    imgBright = cv2.addWeighted(imgrgb, a, src2, 1 - a, g)
+
+    return imgBright
+
+
 def data_augmentation_with_gray(img_path, img, boxes, labels, img_size, class_num_dic, use_label_smothing = False):
     confs = None
-    choice_list = [0, 1]
-    h, w, c = img.shape
-    choice = 0
+    # 随机裁剪
+    cutsize = random.randint(int(globalvar.globalvar.config.model_set["image_size"][0]*globalvar.globalvar.config.model_set["scale"][0]),
+                             int(globalvar.globalvar.config.model_set["image_size"][0]*globalvar.globalvar.config.model_set["scale"][1]))
+    img, boxes, labels = cut_random_with_size(img, boxes, labels, class_num_dic, cut_size=(cutsize, cutsize), cut_factor=0.8)
+    labels = [0 for i in range(len(boxes))] if globalvar.globalvar.config.data_set['mergeLabel'] else labels
 
-    if choice == 0:
-        cutsize = random.randint(1600, 2400)
-        img, boxes = cut_random_with_size(img, boxes, labels, class_num_dic, cut_size=(cutsize, cutsize), cut_factor=0.8)
-        labels = [0 for i in range(len(boxes))]
+    # 添加背景
+    if random.randint(0, 3) and len(boxes) > 0 and globalvar.globalvar.background_add_lines is not None:
+        img = add_background_box(img, boxes, globalvar.globalvar.background_add_lines, 6)
 
-        choice = random.sample([0, 1, 2, 3], 1)[0]
-        # choice = 0
-        if choice != 0 and len(boxes) > 0 and globalvar.globalvar.config.model_set["add_background"] and globalvar.globalvar.background_add_lines is not None:
-            img = add_background_box(img, boxes, globalvar.globalvar.background_add_lines, 6)
+    # if random.randint(0, 1) and len(boxes) > 2:
+    if False and len(boxes) > 2:
+        img, boxes, labels = replace_random(img, boxes, labels, max_num_replace=2, replace_box_scope=(100, 500))
 
-        choice = random.sample(choice_list, 1)[0]
-        choice = 1
-        if choice == 0 and len(boxes) > 2:
-            img, boxes, labels = replace_random(img, boxes, labels, max_num_replace=2, replace_box_scope=(100, 500))
+    img, boxes = resize_image_and_correct_boxes(img, boxes, img_size)
 
-        img, boxes = resize_image_and_correct_boxes(img, boxes, img_size)
-        choice = random.sample(choice_list, 1)[0]
-        # choice = 0
-        if choice == 0:
-            img, boxes, labels = random_rotation(img_path, img, boxes, labels, img_size, angle_value=180, angle_set=None)
-        choice = random.sample(choice_list, 1)[0]
-        # choice = 0
-        if choice == 0:
-            img, boxes, labels = flip_rl(img, boxes, labels)
-        choice = random.sample(choice_list, 1)[0]
-        # choice = 0
-        if choice == 0:
-            img, boxes, labels = flip_ud(img, boxes, labels)
+    # 随机旋转
+    if random.randint(0, 1):
+        img, boxes, labels = random_rotation(img_path, img, boxes, labels, img_size, angle_value=globalvar.globalvar.config.data_set["detRotate"], angle_set=None)
+        # img, boxes, labels = random_rotation(img_path, img, boxes, labels, img_size, angle_value=10, angle_set=None)
+        # img, boxes, labels = random_rotation(img_path, img, boxes, labels, img_size, angle_value=4, angle_set=None)
+        # img, boxes, labels = randomRotation(img, boxes, labels, angle_value=180, angle_set=None)
 
-        transform = A.Compose(
-            [
-             A.augmentations.transforms.RandomGamma(gamma_limit=(50, 150), eps=None, always_apply=False, p=0.5),
-             A.augmentations.transforms.RandomBrightnessContrast(brightness_limit=[-0.3, 0.2], contrast_limit=0.1, brightness_by_max=False, always_apply=False, p=0.5),
-            ])
-        data_transformed = transform(image=img)
-        img = data_transformed["image"]
+    # 随机旋转固定值[-90, 90, -180, 180]
+    # img, boxes, labels = randomRotation(img, boxes, labels, angle_set=90)
+
+    if random.randint(0, 1):
+        img, boxes, labels = flip_rl(img, boxes, labels)
+
+    if random.randint(0, 1):
+        img, boxes, labels = flip_ud(img, boxes, labels)
+
+    if random.randint(0, 1):
+        img = imgAddBrightness(img)
+
+    if random.randint(0, 1):
+        img = randomColorDistort(img)
+
+    transform = A.Compose(
+        [
+         A.augmentations.transforms.RandomGamma(gamma_limit=(50, 150), eps=None, always_apply=False, p=0.5),
+         A.augmentations.transforms.RandomBrightnessContrast(brightness_limit=[-0.3, 0.2], contrast_limit=0.1, brightness_by_max=False, always_apply=False, p=0.5),
+        ])
+    data_transformed = transform(image=img)
+    img = data_transformed["image"]
 
     boxes = boxes.astype(np.float32)
+
+    # 存图检验扩充效果
+    # img_show = copy.deepcopy(img)
+    # for i, box in enumerate(boxes):
+    #     l = labels[i]
+    #     s = 1
+    #     cv2.rectangle(img_show, (box[0], box[1]), (box[2], box[3]), (0, 255, 0), 2)
+    #     cv2.putText(img_show, "%s-%.4f-%.4f" % (l, s, s),
+    #                 (int(box[0]), int(box[1]) - 16), 0, 1, (255, 0, 0), 2,
+    #                 lineType=cv2.LINE_AA)
+    # dir = "/home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/nbst/sjht-nbst-293-301/tmp/test/output3"
+    # if not os.path.exists(dir):
+    #     os.makedirs(dir)
+    # path = f"{dir}/{time.time()}.jpg"
+    # cv2.imwrite(path, img_show)
 
     return img, boxes, labels, confs
 
@@ -1129,15 +1247,16 @@ def data_augmentation(img_path, img, boxes, labels, img_size, class_num_dic, use
     choice_list = [0, 1]
     h, w, c = img.shape
     choice = 0
-
     if choice == 0:
-        cutsize = random.randint(1600, 2400)
+        # cutsize = random.randint(1600, 2400)
+        cutsize = random.randint(int(globalvar.globalvar.config.model_set["image_size"][0]*globalvar.globalvar.config.model_set["scale"][0]),
+                                 int(globalvar.globalvar.config.model_set["image_size"][0]*globalvar.globalvar.config.model_set["scale"][1]))
         img, boxes = cut_random_with_size(img, boxes, labels, class_num_dic, cut_size=(cutsize, cutsize), cut_factor=0.8)
         labels = [0 for i in range(len(boxes))]
 
         choice = random.sample([0, 1, 2, 3], 1)[0]
         # choice = 0
-        if choice != 0 and len(boxes) > 0 and globalvar.globalvar.config.model_set["add_background"] and globalvar.globalvar.background_add_lines is not None:
+        if choice != 0 and len(boxes) > 0 and globalvar.globalvar.background_add_lines is not None:
             img = add_background_box(img, boxes, globalvar.globalvar.background_add_lines, 6)
 
         choice = random.sample(choice_list, 1)[0]
@@ -1159,6 +1278,18 @@ def data_augmentation(img_path, img, boxes, labels, img_size, class_num_dic, use
         if choice == 0:
             img, boxes, labels = flip_ud(img, boxes, labels)
 
+        if random.sample(choice_list, 1)[0]:
+            img = img_addweight(copy.deepcopy(img))
+
+        if random.sample(choice_list, 1)[0]:
+            img = img_addcontrast_brightness(img)
+
+        if random.sample(choice_list, 1)[0]:
+            img = img_blur(img)
+
+        if random.sample(choice_list, 1)[0]:
+            img = random_color_distort(img)
+
         transform = A.Compose(
             [
              A.augmentations.transforms.RandomGamma(gamma_limit=(50, 150), eps=None, always_apply=False, p=0.5),
@@ -1170,152 +1301,74 @@ def data_augmentation(img_path, img, boxes, labels, img_size, class_num_dic, use
     boxes = boxes.astype(np.float32)
 
     return img, boxes, labels, confs
-#
-# def data_augmentation(img_path, img, boxes, labels, img_size, class_num_dic, use_label_smothing = False):
-#     #confs = np.ones(labels.shape)
-#     confs = None
-#     img_temp = [img.copy()]
-#     boxes_temp = [boxes.copy()]
-#     labels_temp = [labels.copy()]
-#     choice_list = [0, 1]
-#     # choice = random.sample(choice_list, 1)[0]
-#     h, w, c = img.shape
-#     img_ori_size = [w, h]
-#
-#     choice = 0
-#     judge_box("original", img_path, img, boxes)
-#     if choice == 0:
-#         choice = random.sample(choice_list, 1)[0]
-#         #choice = 1
-#         if choice == 0:
-#             img, boxes, labels = random_rotation(img_path, img, boxes, labels, img_size, angle_value=180, angle_set=None)
-#
-#         choice = random.sample(choice_list, 1)[0]
-#         choice = 1
-#         if choice == 0 and len(boxes) > 0:
-#             img, boxes, labels = cut_random_new(img_path, img, boxes, labels, img_size)
-#             img, boxes = resize_image_and_correct_boxes(img, boxes, img_ori_size)
-#
-#         choice = random.sample(choice_list, 1)[0]
-#         choice = 1
-#         if choice == 0 and len(boxes) > 0:
-#             img, boxes, labels = padding_random(img_path, img, boxes, labels, img_size)
-#             img, boxes = resize_image_and_correct_boxes(img, boxes, img_ori_size)
-#
-#         cutsize = random.randint(1600, 2400)
-#         img, boxes = cut_random_with_size(img, boxes, labels, class_num_dic, cut_size=(cutsize, cutsize),
-#                                           cut_factor=0.8)
-#         labels = [0 for i in range(len(boxes))]
-#
-#         choice = random.sample(choice_list, 1)[0]
-#         choice = 1
-#         if choice == 0 and len(boxes) > 2:
-#             img, boxes, labels = replace_random(img, boxes, labels, max_num_replace=2, replace_box_scope=(100, 500))
-#
-#         choice = random.sample([0,1,2,3], 1)[0]
-#         choice = 0
-#         if choice != 0 and len(boxes) > 0:
-#             img = add_background_box(img, boxes, background_lines, 10)
-#         choice = random.sample([0, 1, 2, 3], 1)[0]
-#         choice = 0
-#         if choice != 0 and len(boxes) > 0:
-#             img, boxes, labels = add_object_box_old(img, boxes, labels, object_lines, 5)
-#         if len(boxes) != len(labels):
-#             print("len boxes not equal len labels")
-#         img, boxes = resize_image_and_correct_boxes(img, boxes, img_size)
-#
-#         choice = random.sample([0,1,2,3], 1)[0]
-#         if choice == 0:
-#             boxes = boxes.astype(np.float32)
-#             return img, boxes, labels, confs
-#
-#
-#         choice = random.sample(choice_list, 1)[0]
-#         choice = 1
-#         if choice == 0:
-#             img = random_color_temperature(img)
-#
-#         choice = random.sample(choice_list, 1)[0]
-#         # choice = 0
-#         if choice == 0:
-#             img, boxes, labels = flip_rl(img, boxes, labels)
-#             img_temp.append(img.copy())
-#             boxes_temp.append(boxes.copy())
-#             labels_temp.append(labels.copy())
-#             judge_box("flip_rl", img_path, img, boxes)
-#         # choice = random.sample(choice_list, 1)[0]
-#         # if choice == 0:
-#         #    img, boxes, labels = occlusion_random(img, boxes, labels)
-#         #    judge_box("occlusion_random", img_path, img, boxes)
-#         # choice = random.sample(choice_list, 1)[0]
-#         # if choice == 0:
-#         #     img = color_random(img)
-#         # choice = random.sample(choice_list, 1)[0]
-#         # if choice == 0:
-#         #     img = img_addcontrast_brightness(img)
-#         choice = random.sample(choice_list, 1)[0]
-#         # choice = 0
-#         if choice == 0:
-#             img, boxes, labels = flip_ud(img, boxes, labels)
-#             img_temp.append(img.copy())
-#             boxes_temp.append(boxes.copy())
-#             labels_temp.append(labels.copy())
-#             judge_box("flip_ud", img_path, img, boxes)
-#         choice = random.sample(choice_list, 1)[0]
-#         choice = 1
-#         if choice == 0:
-#             img, boxes, labels = rotation_random(img, boxes, labels)
-#             img_temp.append(img.copy())
-#             boxes_temp.append(boxes.copy())
-#             labels_temp.append(labels.copy())
-#             judge_box("rotation_random", img_path, img, boxes)
-#         if use_label_smothing:
-#             if np.sum((boxes_temp[0] == boxes).astype(int)) == boxes.shape[0] * boxes.shape[1]:
-#                 pass
-#             else:
-#                 choice = random.sample(choice_list, 1)[0]
-#                 if choice == 0 and len(labels_temp) > 1:
-#                     id_0, id_1 = random.sample(range(len(labels_temp)), 2)
-#                     rate = random.choice(range(18,22)) / 10
-#                     img = 1/rate * img_temp[id_0] + (1-1/rate)*img_temp[id_1]
-#                     img = np.asarray(img, np.uint8)
-#                     boxes = np.append(boxes_temp[id_0], boxes_temp[id_1], axis=0)
-#                     labels = np.append(labels_temp[id_0], labels_temp[id_1], axis=0)
-#                     confs = np.append(1/rate * confs, (1-1/rate) * confs, axis=0)
-#                 judge_box("label_smothing", img_path, img, boxes)
-#         choice = random.sample(choice_list, 1)[0]
-#         # choice = 1
-#         if choice == 0:
-#             img = img_addcontrast_brightness(img)
-#         choice = random.sample(choice_list, 1)[0]
-#         # choice = 1
-#         if choice == 0:
-#             img = img_blur(img)
-#         choice = random.sample(choice_list, 1)[0]
-#         choice = 1
-#         if choice == 0:
-#             img = img_addweight(img)
-#         choice = random.sample(choice_list, 1)[0]
-#         # choice = 1
-#         if choice == 0:
-#             img = random_change_contrast(img)
-#         choice = random.sample(choice_list, 1)[0]
-#         # choice = 1
-#         if choice == 0:
-#             img = random_color_distort(img)
-#
-#
-#         choice = random.sample(choice_list, 1)[0]
-#         # choice = 1
-#         if choice == 0:
-#             ratio = random.sample([[222, 246, 255], [220, 255, 255], [227, 238, 255], [218, 237, 255]], 1)[0]
-#             img = change_temperature(img, ratio)
-#
-#         # boxes, labels, confs = merge_box(boxes, labels, confs, threshold = 0.2)
-#     # img = img.astype(np.float32)
-#     boxes = boxes.astype(np.float32)
-#     #confs = confs.astype(np.float32)
-#
-#     return img, boxes, labels, confs
 
+
+def dataAugmentation(img_path, img, boxes, labels, img_size, class_num_dic, use_label_smothing = False):
+    confs = None
+    # 随机裁剪
+    cutsize = random.randint(int(globalvar.globalvar.config.model_set["image_size"][0]*globalvar.globalvar.config.model_set["scale"][0]),
+                             int(globalvar.globalvar.config.model_set["image_size"][0]*globalvar.globalvar.config.model_set["scale"][1]))
+    img, boxes, labels = cut_random_with_size(img, boxes, labels, class_num_dic, cut_size=(cutsize, cutsize), cut_factor=0.8)
+    labels = [0 for i in range(len(boxes))] if globalvar.globalvar.config.data_set['mergeLabel'] else labels
+
+    # 添加背景
+    if random.randint(0, 3) and len(boxes) > 0 and globalvar.globalvar.background_add_lines is not None:
+        img = add_background_box(img, boxes, globalvar.globalvar.background_add_lines, 6)
+
+    # if random.randint(0, 1) and len(boxes) > 2:
+    if False and len(boxes) > 2:
+        img, boxes, labels = replace_random(img, boxes, labels, max_num_replace=2, replace_box_scope=(100, 500))
+
+    img, boxes = resize_image_and_correct_boxes(img, boxes, img_size)
+
+    # 随机旋转
+    if random.randint(0, 1):
+        img, boxes, labels = random_rotation(img_path, img, boxes, labels, img_size, angle_value=globalvar.globalvar.config.data_set["detRotate"], angle_set=None)
+        # img, boxes, labels = random_rotation(img_path, img, boxes, labels, img_size, angle_value=10, angle_set=None)
+        # img, boxes, labels = random_rotation(img_path, img, boxes, labels, img_size, angle_value=4, angle_set=None)
+        # img, boxes, labels = randomRotation(img, boxes, labels, angle_value=180, angle_set=None)
+
+    # 随机旋转固定值[-90, 90, -180, 180]
+    angles = [-90, 90, -180, 180]
+    angle = angles[random.randint(0, 3)]
+    img, boxes, labels = randomRotation(img, boxes, labels, angle_set=angle)
+
+    if random.randint(0, 1):
+        img, boxes, labels = flip_rl(img, boxes, labels)
+
+    if random.randint(0, 1):
+        img, boxes, labels = flip_ud(img, boxes, labels)
+
+    if random.randint(0, 1):
+        img = imgAddBrightness(img)
+
+    if random.randint(0, 1):
+        img = randomColorDistort(img)
+
+    transform = A.Compose(
+        [
+         A.augmentations.transforms.RandomGamma(gamma_limit=(50, 150), eps=None, always_apply=False, p=0.5),
+         A.augmentations.transforms.RandomBrightnessContrast(brightness_limit=[-0.3, 0.2], contrast_limit=0.1, brightness_by_max=False, always_apply=False, p=0.5),
+        ])
+    data_transformed = transform(image=img)
+    img = data_transformed["image"]
+
+    boxes = boxes.astype(np.float32)
+
+    # 存图检验扩充效果
+    # img_show = copy.deepcopy(img)
+    # for i, box in enumerate(boxes):
+    #     l = labels[i]
+    #     s = 1
+    #     cv2.rectangle(img_show, (box[0], box[1]), (box[2], box[3]), (0, 255, 0), 2)
+    #     cv2.putText(img_show, "%s-%.4f-%.4f" % (l, s, s),
+    #                 (int(box[0]), int(box[1]) - 16), 0, 1, (255, 0, 0), 2,
+    #                 lineType=cv2.LINE_AA)
+    # dir = "/home/biwi/data/images4code/ai_model_ckpt/manu_train/sjht/nbst/sjht-nbst-293-301/tmp/test/output3"
+    # if not os.path.exists(dir):
+    #     os.makedirs(dir)
+    # path = f"{dir}/{time.time()}.jpg"
+    # cv2.imwrite(path, img_show)
+
+    return img, boxes, labels, confs
 

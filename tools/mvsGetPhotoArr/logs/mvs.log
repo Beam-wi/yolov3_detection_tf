@@ -1,0 +1,1071 @@
+2021-03-18 04:34:14,307 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 04:34:14,717 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 04:34:14,718 mvs_get_photo_arr.py	[line:91] DEBUG 
+U3v device: [0]
+2021-03-18 04:34:14,720 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 04:34:14,721 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+2021-03-18 04:34:14,722 mvs_get_photo_arr.py	[line:91] DEBUG 
+U3v device: [1]
+2021-03-18 04:34:14,723 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 04:34:14,724 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+2021-03-18 04:34:14,725 mvs_get_photo_arr.py	[line:91] DEBUG 
+U3v device: [2]
+2021-03-18 04:34:14,726 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 04:34:14,727 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+2021-03-18 04:34:14,728 mvs_get_photo_arr.py	[line:91] DEBUG 
+U3v device: [3]
+2021-03-18 04:34:14,729 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 04:34:14,730 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+2021-03-18 04:40:22,956 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:40:22,957 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:40:22,962 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:40:22,983 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:49:21,572 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 04:49:21,981 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 04:49:21,982 mvs_get_photo_arr.py	[line:91] DEBUG 
+U3v device: [0]
+2021-03-18 04:49:21,984 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 04:49:21,984 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 04:49:21,985 mvs_get_photo_arr.py	[line:91] DEBUG 
+U3v device: [1]
+2021-03-18 04:49:21,986 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 04:49:21,986 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 04:49:21,987 mvs_get_photo_arr.py	[line:91] DEBUG 
+U3v device: [2]
+2021-03-18 04:49:21,988 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 04:49:21,988 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 04:49:21,989 mvs_get_photo_arr.py	[line:91] DEBUG 
+U3v device: [3]
+2021-03-18 04:49:21,989 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 04:49:21,990 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 04:51:00,757 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 04:51:01,166 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 04:51:01,167 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 04:51:01,167 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 04:51:01,168 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 04:51:01,168 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 04:51:01,169 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 04:51:01,169 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 04:51:01,170 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 04:51:01,171 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 04:51:01,171 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 04:51:01,171 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 04:51:01,172 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 04:51:01,172 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 04:52:21,207 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:52:21,215 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:52:21,220 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:52:21,221 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:54:37,000 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:54:37,023 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:54:37,032 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:54:37,034 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:55:40,599 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 04:55:41,008 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 04:55:41,008 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 04:55:41,009 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 04:55:41,009 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 04:55:41,009 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 04:55:41,009 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 04:55:41,009 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 04:55:41,010 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 04:55:41,010 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 04:55:41,010 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 04:55:41,010 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 04:55:41,010 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 04:55:41,010 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 04:55:47,546 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:55:47,567 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:55:47,575 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:55:47,880 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:55:48,165 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:55:48,190 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:55:48,190 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:55:48,191 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:55:48,474 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:55:48,499 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:55:48,508 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:55:48,625 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:55:48,891 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:55:48,919 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:55:48,919 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:55:49,465 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:55:49,732 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:55:49,751 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:55:49,759 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:55:50,321 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:55:50,596 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:55:50,603 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:55:50,638 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:55:51,159 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:55:51,446 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:55:51,454 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:55:51,454 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:55:52,006 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:55:52,289 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:55:52,290 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:55:52,295 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:55:52,850 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:55:53,124 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:55:53,131 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:55:53,157 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:55:53,698 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:55:53,972 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:55:53,995 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:55:54,004 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:55:54,544 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:55:54,809 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:55:54,830 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:55:54,838 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:55:55,391 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:57:12,973 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 04:57:13,382 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 04:57:13,382 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 04:57:13,382 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 04:57:13,383 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 04:57:13,383 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 04:57:13,383 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 04:57:13,383 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 04:57:13,383 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 04:57:13,383 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 04:57:13,384 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 04:57:13,384 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 04:57:13,384 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 04:57:13,384 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 04:57:19,913 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:57:19,942 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:57:19,943 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:57:20,270 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:57:20,554 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:57:20,554 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:57:20,562 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:57:20,584 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:57:20,861 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:57:20,869 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:57:20,896 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:57:20,981 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:57:21,251 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:57:21,270 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:57:21,271 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:57:21,830 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:57:22,118 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:57:22,118 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:57:22,127 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:57:22,671 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:57:22,945 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:57:22,961 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:57:22,961 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:57:23,512 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:57:23,774 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:57:23,793 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:57:23,801 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:57:24,394 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:57:24,657 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:57:24,679 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:57:24,680 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:57:25,203 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:57:25,468 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:57:25,487 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:57:25,494 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:57:26,057 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:57:26,322 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:57:26,344 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:57:26,366 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:57:26,895 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:57:27,180 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:57:27,181 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:57:27,189 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:57:27,752 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:57:28,015 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:57:28,040 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:57:28,041 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:57:28,589 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:57:28,855 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:57:28,863 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:57:28,869 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:57:29,433 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:57:29,706 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:57:29,714 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:57:29,742 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:57:30,280 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:57:30,562 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:57:30,578 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:57:30,580 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:57:31,139 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:57:31,416 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:57:31,422 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:57:31,462 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:57:31,976 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:57:32,253 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:57:32,267 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:57:32,268 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:57:32,821 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:57:33,087 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:57:33,094 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:57:33,105 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:57:33,670 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:57:33,934 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:57:33,954 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:57:33,960 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:57:34,512 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:57:34,792 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:57:34,806 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:57:34,808 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:57:35,355 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:57:35,634 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:57:35,642 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:57:35,645 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:57:36,202 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:57:36,487 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:57:36,488 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:57:36,493 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:57:37,061 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:57:37,356 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:57:37,362 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:57:37,363 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:57:37,899 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:57:38,161 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:57:38,185 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:57:38,185 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:57:38,743 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:57:39,023 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:57:39,030 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:57:39,031 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:57:39,595 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:57:39,889 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:57:39,894 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:57:39,894 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:57:40,434 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:57:40,710 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:57:40,716 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:57:40,747 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:57:41,281 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:57:41,548 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:57:41,556 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:57:41,598 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:57:42,136 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:57:42,416 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:57:42,416 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:57:42,423 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:57:42,983 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:57:43,247 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:57:43,269 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:57:43,276 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:57:43,831 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 04:58:49,147 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 04:58:49,557 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 04:58:49,557 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 04:58:49,557 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 04:58:49,558 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 04:58:49,558 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 04:58:49,558 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 04:58:49,558 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 04:58:49,558 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 04:58:49,558 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 04:58:49,559 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 04:58:49,559 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 04:58:49,559 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 04:58:49,559 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 04:58:56,071 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 04:58:56,078 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 04:58:56,386 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 04:58:56,800 mvs_get_photo_arr.py	[line:220] ERROR Camera 0 get one frame fail, ret[0x2147483655]
+2021-03-18 05:00:05,378 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 05:00:05,787 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 05:00:05,787 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 05:00:05,787 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:00:05,787 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 05:00:05,788 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 05:00:05,788 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:00:05,788 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 05:00:05,788 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 05:00:05,788 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:00:05,788 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 05:00:05,789 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 05:00:05,789 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:00:05,789 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 05:00:14,539 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 05:00:14,546 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 05:00:14,575 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 05:00:14,856 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 05:00:15,117 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 05:00:15,144 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 05:00:15,144 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 05:00:15,152 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 05:00:15,434 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 05:00:15,446 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 05:00:15,455 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 05:00:15,587 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 05:00:15,858 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 05:00:15,871 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 05:00:15,872 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 05:00:16,429 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 05:00:16,708 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 05:00:16,716 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 05:00:16,724 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 05:00:17,269 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 05:00:17,557 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 05:00:17,564 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 05:00:17,566 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 05:00:18,112 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 05:00:18,391 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 05:00:18,397 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 05:00:18,397 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 05:00:18,959 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 05:00:19,232 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 05:00:19,246 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 05:00:19,247 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 05:00:19,807 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 05:00:20,071 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 05:00:20,093 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 05:00:20,094 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 05:00:20,650 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 05:00:20,944 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 05:00:20,945 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 05:00:20,946 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 05:00:21,497 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 05:00:21,787 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 05:00:21,787 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 05:00:21,806 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 05:00:22,344 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 05:00:22,625 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 05:00:22,631 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 05:00:22,632 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 05:00:23,192 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 05:00:23,467 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 05:00:23,478 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 05:00:23,484 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 05:00:24,042 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 05:00:24,305 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 05:00:24,330 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 05:00:24,331 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 05:00:24,885 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 05:00:25,164 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 05:00:25,170 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 05:00:25,195 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 05:00:25,728 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 05:00:25,999 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 05:00:26,008 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 05:00:26,034 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 05:00:26,582 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 05:00:26,858 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 05:00:26,866 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 05:00:26,897 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 05:00:27,421 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 05:00:27,686 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 05:00:27,709 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 05:00:27,710 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 05:02:56,679 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 05:02:57,088 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 05:02:57,088 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 05:02:57,089 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:02:57,089 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 05:02:57,089 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 05:02:57,089 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:02:57,090 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 05:02:57,090 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 05:02:57,090 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:02:57,090 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 05:02:57,090 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 05:02:57,090 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:02:57,091 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 05:03:05,592 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 05:03:05,607 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 05:03:05,610 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 05:03:06,323 mvs_get_photo_arr.py	[line:220] ERROR Camera 3 get one frame fail, ret[0x2147483655]
+2021-03-18 05:03:53,239 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 05:03:53,647 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 05:03:53,648 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 05:03:53,649 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:03:53,650 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 05:03:53,651 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 05:03:53,652 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:03:53,652 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 05:03:53,653 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 05:03:53,653 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:03:53,654 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 05:03:53,654 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 05:03:53,654 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:03:53,654 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 05:04:02,380 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 05:04:02,395 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 05:04:02,395 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 05:04:02,688 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 05:04:02,958 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 05:04:02,973 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 05:04:02,981 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 05:04:03,002 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 05:04:03,286 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 05:04:03,302 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 05:04:03,307 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 05:04:03,447 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 05:04:03,728 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 05:04:03,728 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 05:04:03,734 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 05:04:04,297 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 05:04:04,575 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 05:04:04,584 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 05:04:04,609 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 05:04:05,132 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 05:04:05,393 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 05:04:05,416 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 05:04:05,423 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 05:04:05,977 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 05:04:06,243 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 05:04:06,263 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 05:04:06,269 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 05:04:06,826 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 05:04:07,108 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 05:04:07,108 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 05:04:07,116 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 05:04:07,711 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 05:04:08,004 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 05:04:08,010 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 05:04:08,011 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 05:04:08,516 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 05:04:08,791 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 05:04:08,807 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 05:04:08,808 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 05:04:09,363 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 05:04:09,641 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 05:04:09,649 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 05:04:09,650 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 05:04:10,209 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 05:04:10,495 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 05:04:10,496 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 05:04:10,503 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 05:04:11,058 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 05:04:11,341 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 05:04:11,341 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 05:04:11,351 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 05:04:11,901 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 05:04:12,181 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 05:04:12,196 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 05:04:12,197 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 05:04:12,750 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 05:04:13,016 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 05:04:13,032 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 05:04:13,058 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 05:04:13,592 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253196 Device: 0 Shape: (3648, 5472, 3)
+2021-03-18 05:04:13,853 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E41843416 Device: 2 Shape: (3648, 5472, 3)
+2021-03-18 05:04:13,870 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00E50919334 Device: 3 Shape: (3648, 5472, 3)
+2021-03-18 05:04:13,899 mvs_get_photo_arr.py	[line:214] INFO MV-CE200-10UC Serial: 00D59253204 Device: 1 Shape: (3648, 5472, 3)
+2021-03-18 05:04:57,251 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 05:04:57,660 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 05:04:57,660 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 05:04:57,660 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:04:57,660 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 05:04:57,661 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 05:04:57,661 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:04:57,661 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 05:04:57,661 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 05:04:57,662 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:04:57,662 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 05:04:57,662 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 05:04:57,662 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:04:57,663 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 05:05:04,692 mvs_get_photo_arr.py	[line:220] ERROR Camera 0 get one frame fail, ret[0x2147483655]
+2021-03-18 05:05:04,693 mvs_get_photo_arr.py	[line:220] ERROR Camera 2 get one frame fail, ret[0x2147483655]
+2021-03-18 05:07:23,866 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 05:07:24,275 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 05:07:24,275 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 05:07:24,276 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:07:24,276 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 05:07:24,276 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 05:07:24,277 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:07:24,277 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 05:07:24,277 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 05:07:24,278 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:07:24,278 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 05:07:24,278 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 05:07:24,279 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:07:24,279 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 05:07:51,161 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 05:07:51,570 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 05:07:51,570 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 05:07:51,571 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:07:51,571 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 05:07:51,571 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 05:07:51,571 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:07:51,571 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 05:07:51,572 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 05:07:51,572 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:07:51,572 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 05:07:51,572 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 05:07:51,572 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:07:51,572 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 05:08:08,887 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 05:08:09,295 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 05:08:09,296 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 05:08:09,296 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:08:09,296 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 05:08:09,297 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 05:08:09,297 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:08:09,297 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 05:08:09,297 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 05:08:09,297 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:08:09,297 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 05:08:09,298 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 05:08:09,298 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:08:09,298 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 05:08:39,905 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 05:08:40,313 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 05:08:40,314 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 05:08:40,314 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:08:40,314 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 05:08:40,314 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 05:08:40,315 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:08:40,315 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 05:08:40,315 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 05:08:40,315 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:08:40,315 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 05:08:40,316 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 05:08:40,316 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:08:40,316 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 05:09:37,237 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 05:09:37,646 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 05:09:37,646 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 05:09:37,647 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:09:37,647 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 05:09:37,647 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 05:09:37,647 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:09:37,648 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 05:09:37,648 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 05:09:37,648 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:09:37,648 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 05:09:37,649 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 05:09:37,649 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:09:37,649 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 05:09:57,387 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 05:09:57,796 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 05:09:57,797 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 05:09:57,797 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:09:57,797 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 05:09:57,797 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 05:09:57,797 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:09:57,798 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 05:09:57,798 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 05:09:57,798 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:09:57,798 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 05:09:57,798 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 05:09:57,798 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:09:57,799 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 05:11:44,914 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 05:11:45,323 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 05:11:45,323 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 05:11:45,324 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:11:45,324 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 05:11:45,324 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 05:11:45,324 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:11:45,324 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 05:11:45,325 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 05:11:45,325 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:11:45,325 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 05:11:45,325 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 05:11:45,326 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:11:45,326 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 05:15:04,269 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 05:15:04,677 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 05:15:04,678 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 05:15:04,678 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:15:04,678 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 05:15:04,679 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 05:15:04,679 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:15:04,679 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 05:15:04,679 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 05:15:04,680 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:15:04,680 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 05:15:04,680 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 05:15:04,680 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:15:04,680 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 05:15:46,511 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 05:15:46,920 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 05:15:46,920 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 05:15:46,921 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:15:46,921 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 05:15:46,921 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 05:15:46,921 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:15:46,922 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 05:15:46,922 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 05:15:46,922 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:15:46,922 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 05:15:46,923 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 05:15:46,923 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:15:46,923 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 05:16:48,118 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 05:16:48,527 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 05:16:48,528 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 05:16:48,528 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:16:48,528 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 05:16:48,528 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 05:16:48,528 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:16:48,528 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 05:16:48,529 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 05:16:48,529 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:16:48,529 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 05:16:48,529 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 05:16:48,529 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:16:48,530 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 05:16:55,732 mvs_get_photo_arr.py	[line:221] ERROR Camera 0 get one frame fail, ret[0x2147483655]
+2021-03-18 05:18:14,106 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 05:18:14,515 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 05:18:14,516 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 05:18:14,516 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:18:14,516 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 05:18:14,517 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 05:18:14,517 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:18:14,517 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 05:18:14,517 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 05:18:14,517 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:18:14,517 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 05:18:14,518 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 05:18:14,518 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:18:14,518 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 05:20:35,175 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 05:20:35,584 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 05:20:35,585 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 05:20:35,585 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:20:35,585 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 05:20:35,585 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 05:20:35,585 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:20:35,586 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 05:20:35,586 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 05:20:35,586 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:20:35,586 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 05:20:35,587 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 05:20:35,587 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:20:35,587 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 05:20:42,792 mvs_get_photo_arr.py	[line:220] ERROR Camera 0 get one frame fail, ret[0x2147483655]
+2021-03-18 05:21:10,503 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 05:21:10,911 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 05:21:10,912 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 05:21:10,912 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:21:10,912 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 05:21:10,912 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 05:21:10,913 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:21:10,913 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 05:21:10,913 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 05:21:10,913 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:21:10,913 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 05:21:10,914 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 05:21:10,914 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:21:10,914 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 05:23:33,558 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 05:23:33,967 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 05:23:33,967 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 05:23:33,967 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:23:33,968 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 05:23:33,968 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 05:23:33,968 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:23:33,968 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 05:23:33,968 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 05:23:33,969 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:23:33,969 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 05:23:33,969 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 05:23:33,969 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:23:33,969 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 05:26:59,272 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 05:26:59,680 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 05:26:59,681 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 05:26:59,681 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:26:59,682 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 05:26:59,682 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 05:26:59,682 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:26:59,683 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 05:26:59,683 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 05:26:59,683 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:26:59,683 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 05:26:59,684 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 05:26:59,684 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:26:59,684 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 05:27:06,660 mvs_get_photo_arr.py	[line:223] ERROR Camera 0 get one frame fail, ret[0x2147483655]
+2021-03-18 05:27:06,661 mvs_get_photo_arr.py	[line:223] ERROR Camera 1 get one frame fail, ret[0x2147483655]
+2021-03-18 05:27:29,422 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 05:27:29,831 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 05:27:29,831 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 05:27:29,831 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:27:29,831 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 05:27:29,832 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 05:27:29,832 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:27:29,832 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 05:27:29,832 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 05:27:29,832 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:27:29,833 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 05:27:29,833 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 05:27:29,833 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:27:29,833 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 05:27:37,041 mvs_get_photo_arr.py	[line:223] ERROR Camera 0 get one frame fail, ret[0x2147483655]
+2021-03-18 05:27:58,968 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 05:27:59,377 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 05:27:59,377 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 05:27:59,377 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:27:59,378 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 05:27:59,378 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 05:27:59,378 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:27:59,378 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 05:27:59,378 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 05:27:59,378 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:27:59,379 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 05:27:59,379 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 05:27:59,379 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:27:59,379 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 05:32:04,901 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 05:32:05,309 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 05:32:05,310 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 05:32:05,310 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:32:05,310 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 05:32:05,310 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 05:32:05,311 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:32:05,311 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 05:32:05,311 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 05:32:05,311 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:32:05,311 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 05:32:05,311 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 05:32:05,312 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:32:05,312 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 05:32:14,480 mvs_get_photo_arr.py	[line:223] ERROR Camera 1 get one frame fail, ret[0x2147483655]
+2021-03-18 05:32:49,614 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 05:32:50,023 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 05:32:50,024 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 05:32:50,024 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:32:50,024 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 05:32:50,025 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 05:32:50,025 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:32:50,025 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 05:32:50,026 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 05:32:50,026 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:32:50,026 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 05:32:50,027 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 05:32:50,027 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:32:50,027 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 05:32:57,227 mvs_get_photo_arr.py	[line:223] ERROR Camera 0 get one frame fail, ret[0x2147483655]
+2021-03-18 05:33:08,353 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 05:33:08,761 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 05:33:08,761 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 05:33:08,762 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:33:08,762 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 05:33:08,762 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 05:33:08,762 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:33:08,762 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 05:33:08,763 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 05:33:08,763 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:33:08,763 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 05:33:08,763 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 05:33:08,763 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:33:08,763 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 05:34:35,360 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 05:34:35,768 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 05:34:35,769 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 05:34:35,769 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:34:35,769 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 05:34:35,769 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 05:34:35,770 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:34:35,770 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 05:34:35,770 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 05:34:35,771 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:34:35,771 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 05:34:35,771 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 05:34:35,771 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:34:35,772 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 05:35:17,847 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 05:35:18,256 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 05:35:18,257 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 05:35:18,258 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:35:18,258 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 05:35:18,259 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 05:35:18,259 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:35:18,259 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 05:35:18,260 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 05:35:18,260 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:35:18,260 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 05:35:18,261 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 05:35:18,261 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:35:18,261 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 05:38:46,392 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 05:38:46,800 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 05:38:46,801 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 05:38:46,801 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:38:46,801 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 05:38:46,802 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 05:38:46,802 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:38:46,803 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 05:38:46,803 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 05:38:46,804 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:38:46,804 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 05:38:46,804 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 05:38:46,804 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:38:46,805 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 05:45:32,089 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 05:45:32,498 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 05:45:32,498 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 05:45:32,499 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:45:32,499 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 05:45:32,499 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 05:45:32,499 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:45:32,500 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 05:45:32,500 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 05:45:32,500 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:45:32,500 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 05:45:32,500 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 05:45:32,500 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:45:32,501 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 05:51:58,551 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 05:51:58,960 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 05:51:58,961 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 05:51:58,962 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:51:58,963 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 05:51:58,964 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 05:51:58,964 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:51:58,965 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 05:51:58,966 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 05:51:58,966 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:51:58,966 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 05:51:58,966 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 05:51:58,967 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:51:58,967 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 05:54:57,879 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 05:54:58,288 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 05:54:58,288 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 05:54:58,288 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:54:58,289 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 05:54:58,289 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 05:54:58,289 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:54:58,289 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 05:54:58,289 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 05:54:58,290 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:54:58,290 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 05:54:58,290 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 05:54:58,290 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:54:58,290 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 05:55:05,512 mvs_get_photo_arr.py	[line:229] ERROR Camera 0 get one frame fail, ret[0x2147483655]
+2021-03-18 05:56:45,102 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 05:56:45,510 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 05:56:45,511 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 05:56:45,511 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:56:45,512 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 05:56:45,512 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 05:56:45,512 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:56:45,513 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 05:56:45,513 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 05:56:45,513 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:56:45,514 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 05:56:45,514 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 05:56:45,514 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:56:45,514 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 05:57:48,394 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 05:57:48,803 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 05:57:48,803 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 05:57:48,803 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:57:48,803 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 05:57:48,804 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 05:57:48,804 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:57:48,804 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 05:57:48,804 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 05:57:48,804 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:57:48,804 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 05:57:48,805 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 05:57:48,805 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 05:57:48,805 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 22:11:47,960 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 22:11:48,451 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 22:11:48,452 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 22:11:48,452 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 22:11:48,452 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 22:11:48,452 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 22:11:48,452 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 22:11:48,453 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 22:11:48,453 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 22:11:48,453 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 22:11:48,453 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 22:11:48,453 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 22:11:48,454 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 22:11:48,454 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 22:11:48,519 mvs_get_photo_arr.py	[line:127] ERROR Open device fail! ret[0x80000203]
+2021-03-18 22:13:32,974 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 22:13:33,383 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 22:13:33,385 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 22:13:33,386 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 22:13:33,386 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 22:13:33,387 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 22:13:33,387 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 22:13:33,387 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 22:13:33,387 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 22:13:33,388 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 22:13:33,389 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 22:13:33,389 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 22:13:33,389 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 22:13:33,390 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+
+2021-03-18 22:19:31,602 mvs_get_photo_arr.py	[line:50] DEBUG SDKVersion[0x3000008]
+2021-03-18 22:19:32,013 mvs_get_photo_arr.py	[line:65] DEBUG Find 4 devices!
+2021-03-18 22:19:32,014 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [0]
+2021-03-18 22:19:32,014 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 22:19:32,014 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253196
+
+2021-03-18 22:19:32,014 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [1]
+2021-03-18 22:19:32,015 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 22:19:32,015 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00D59253204
+
+2021-03-18 22:19:32,015 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [2]
+2021-03-18 22:19:32,015 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 22:19:32,016 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E41843416
+
+2021-03-18 22:19:32,016 mvs_get_photo_arr.py	[line:91] DEBUG U3v device: [3]
+2021-03-18 22:19:32,016 mvs_get_photo_arr.py	[line:97] DEBUG Device model name: MV-CE200-10UC
+2021-03-18 22:19:32,016 mvs_get_photo_arr.py	[line:110] DEBUG User serial number: 00E50919334
+

@@ -60,7 +60,8 @@ class Logger:
     def info_ai(self, meg=None, api_name=None, get_ins=None, get_outs=None, *args, **kwargs):
         if api_name == "callAiModel":
             self.logger_id += 1
-        meg_add = "\nlogger id:{0}".format(str(self.logger_id))
+        # meg_add = "\nlogger id:{0}".format(str(self.logger_id))
+        meg_add = ""
         if meg:
             meg_add += "\nmessage:{0}".format(str(meg))
         if api_name:
